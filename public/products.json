@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "image":"./images/bartosz-sujkowski-0zA84TFRjI8-unsplash.jpg",
+        "image":"./img/bartosz-sujkowski-0zA84TFRjI8-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Cat-eye T1",
         "brand": "Browline",
@@ -14,7 +14,7 @@
     },
     {
         "id": "2",
-        "image":"./images/bartosz-sujkowski-uxzWfwOIyT8-unsplash.jpg",
+        "image":"./img/bartosz-sujkowski-uxzWfwOIyT8-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Geoglass 1",
         "brand": "Browline",
@@ -27,7 +27,7 @@
     },
     {
         "id": "3",
-        "image":"./images/charlesdeluvio-1-nx1QR5dTE-unsplash.jpg",
+        "image":"./img/charlesdeluvio-1-nx1QR5dTE-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Roundicus X2000",
         "brand": "Melina",
@@ -40,7 +40,7 @@
     },
     {
         "id": "4",
-        "image":"./images/cristi-ursea-MNb1ROebylg-unsplash.jpg",
+        "image":"./img/cristi-ursea-MNb1ROebylg-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Norman",
         "brand": "Browline",
@@ -53,7 +53,7 @@
     },
     {
         "id": "5",
-        "image":"./images/eyeglasses-g0f64bccfa_640.jpg",
+        "image":"./img/eyeglasses-g0f64bccfa_640.jpg",
         "alt": "Glasses Image",
         "name": "Swimmer",
         "brand": "Frahm",
@@ -66,7 +66,7 @@
     },
     {
         "id": "6",
-        "image":"./images/eyeglasses-g5c1006aec_640.jpg",
+        "image":"./img/eyeglasses-g5c1006aec_640.jpg",
         "alt": "Glasses Image",
         "name": "Snakelens",
         "brand": "Frahm",
@@ -79,7 +79,7 @@
     },
     {
         "id": "7",
-        "image":"./images/eyekeeper-eyekeeper-bMJiIRCfAB0-unsplash.jpg",
+        "image":"./img/eyekeeper-eyekeeper-bMJiIRCfAB0-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Gala T20",
         "brand": "Frahm",
@@ -92,7 +92,7 @@
     },
     {
         "id": "8",
-        "image":"public./images/eyekeeper-eyekeeper-UjI1O2konVg-unsplash.jpg",
+        "image":"public./img/eyekeeper-eyekeeper-UjI1O2konVg-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Coconut",
         "brand": "Frahm",
@@ -118,7 +118,7 @@
     },
     {
         "id": "10",
-        "image":"./images/eyekeeper-eyekeeper-y7aDKcoAaC4-unsplash.jpg",
+        "image":"./img/eyekeeper-eyekeeper-y7aDKcoAaC4-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Snow",
         "brand": "Fancyeyes",
@@ -131,7 +131,7 @@
     },
     {
         "id": "11",
-        "image":"./images/eyekeeper-eyekeeper-yZm_jJcDjZg-unsplash.jpg",
+        "image":"./img/eyekeeper-eyekeeper-yZm_jJcDjZg-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Strawberry",
         "brand": "Fancyeyes",
@@ -144,7 +144,7 @@
     },
     {
         "id": "12",
-        "image":"/./images/glasses-gcc69f2bed_640.jpg",
+        "image":"/./img/glasses-gcc69f2bed_640.jpg",
         "alt": "Glasses Image",
         "name": "Potter",
         "brand": "Fancyeyes",
@@ -157,7 +157,7 @@
     },
     {
         "id": "13",
-        "image":"./images/glasses-gd341a8b59_640.jpg",
+        "image":"./img/glasses-gd341a8b59_640.jpg",
         "alt": "Glasses Image",
         "name": "Rectangle T11",
         "brand": "Albert",
@@ -170,7 +170,7 @@
     },
     {
         "id": "14",
-        "image":"./images/oli-woodman-s7gRHGEmX78-unsplash.jpg",
+        "image":"./img/oli-woodman-s7gRHGEmX78-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Beach X100",
         "brand": "Albert",
@@ -183,7 +183,7 @@
     },
     {
         "id": "15",
-        "image":"./images/redowan-dhrubo-1KEVqrKDyUs-unsplash.jpg",
+        "image":"./img/redowan-dhrubo-1KEVqrKDyUs-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Square T50",
         "brand": "Albert",
@@ -196,7 +196,7 @@
     },
     {
         "id": "16",
-        "image":"./images/redowan-dhrubo-9-U5LhHn1Zs-unsplash.jpg",
+        "image":"./img/redowan-dhrubo-9-U5LhHn1Zs-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Cotton Candy",
         "brand": "Melina",
@@ -209,7 +209,7 @@
     },
     {
         "id": "17",
-        "image":"./images/redowan-dhrubo-fWGMEbTzVAE-unsplash.jpg",
+        "image":"./img/redowan-dhrubo-fWGMEbTzVAE-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Sadie",
         "brand": "Melina",
@@ -222,7 +222,7 @@
     },
     {
         "id": "18",
-        "image":"./images/redowan-dhrubo-k3AAIXuv4xU-unsplash.jpg",
+        "image":"./img/redowan-dhrubo-k3AAIXuv4xU-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Michael",
         "brand": "Albert",
@@ -235,7 +235,7 @@
     },
     {
         "id": "19",
-        "image":"./images/redowan-dhrubo-R_S9WWw5wNU-unsplash.jpg",
+        "image":"./img/redowan-dhrubo-R_S9WWw5wNU-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Velvet Thunder",
         "brand": "Melina",
@@ -248,7 +248,7 @@
     },
     {
         "id": "20",
-        "image":"./images/sincerely-media-d05w6_7FaPM-unsplash.jpg",
+        "image":"./img/sincerely-media-d05w6_7FaPM-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Maximus Totalus",
         "brand": "Albert",
