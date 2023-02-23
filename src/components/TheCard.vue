@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fetch-card">
     <div class="row" v-if="items !== null">
       <div
         class="card"
@@ -7,19 +7,18 @@
         v-for="item in items"
         :key="item.id"
       >
-        <div class="img-card">
-          <img :src="item.image" class="card-img-top" alt="..." />
+        <div class="img-wrapper">
+          <div class="img-card">
+            <img :src="item.image" class="card-img-top" alt="..." />
+
+            <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
+          </div>
         </div>
 
         <div class="card-body">
-          <div>
-            <div class="icon">
-              <h5 class="card-title">{{ item.brand }}</h5>
-              <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
-            </div>
-
-            <p class="card-text">{{ item.price }}</p>
-          </div>
+          <h5 class="card-title">{{ item.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ item.brand }}</h6>
+          <p class="card-text">{{ item.price }} Sek</p>
         </div>
       </div>
     </div>
@@ -42,7 +41,6 @@ export default {
       const val = await res.json();
 
       this.items = val;
-      console.log(val);
     },
   },
 };
@@ -60,5 +58,26 @@ export default {
 }
 .row {
   justify-content: center;
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.img-card {
+  position: relative;
+  width: max-content;
+}
+.img-card img {
+  display: block;
+}
+.img-card .bi-suit-heart {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: red;
+}
+.fetch-card {
+  background-color: #fff3f3;
 }
 </style>
