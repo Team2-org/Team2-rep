@@ -92,7 +92,7 @@
     },
     {
         "id": "8",
-        "image":"public./img/eyekeeper-eyekeeper-UjI1O2konVg-unsplash.jpg",
+        "image":"./img/eyekeeper-eyekeeper-UjI1O2konVg-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Coconut",
         "brand": "Frahm",
@@ -105,7 +105,7 @@
     },
     {
         "id": "9",
-        "image":"images/eyekeeper-eyekeeper-VtFvDYh7Qvc-unsplash.jpg",
+        "image":"./img/eyekeeper-eyekeeper-VtFvDYh7Qvc-unsplash.jpg",
         "alt": "Glasses Image",
         "name": "Yellowmellow",
         "brand": "Fancyeyes",
