@@ -4,7 +4,7 @@
 export default {
   data() {
     return {
-      man: "img/man-930397_1280glasses.jpg",
+      ImageSource: "../assets/img/man-930397_1280glasses.jpg",
     };
   },
 };
@@ -12,7 +12,11 @@ export default {
 
 <template>
   <div>
-    <img class="hero-image" :src="man" alt="Cool guy with glasses" />
+    <img
+      class="hero-image"
+      src="../assets/img/man-930397_1280glasses.jpg"
+      alt="Cool guy with glasses"
+    />
   </div>
   <div>
     <h1 class="hero-text1" style="position: absolute; z-index: 100">
@@ -104,7 +108,7 @@ export default {
     display: none;
   }
 }
-/* Phone */
+/* phone */
 @media only screen and (max-width: 400px) {
   .hero-image {
     height: 50vh;
