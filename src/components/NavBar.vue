@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+</script>
 <template>
   <nav
     class="navbar bg-body-tertiary fixed-top"
@@ -82,6 +85,7 @@
       </div>
     </div>
   </nav>
+  <RouterView />
 </template>
 <style scoped>
 .navbar .navbar-toggler {

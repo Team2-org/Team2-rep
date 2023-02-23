@@ -1,5 +1,10 @@
-<script setup></script>
+<script setup>
+import TheCard from "../components/TheCard.vue";
+</script>
 
 <template>
-  <main></main>
+  <TheCard />
 </template>
+<script></script>
+
+<style scoped></style>
