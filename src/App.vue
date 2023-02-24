@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import CompFooter from "./components/CompFooter.vue";
 </script>
 
 <template>
@@ -24,6 +24,7 @@ import HelloWorld from "./components/HelloWorld.vue";
   </header>
 
   <RouterView />
+  <CompFooter />
 </template>
 
 <style scoped>
