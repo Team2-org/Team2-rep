@@ -9,10 +9,17 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "bootstrap": "^5.2.3",
+    "lint": "^0.8.19",
+    "run": "^1.4.0",
+    "vue": "^3.2.45",
+=======
     "@ztrehagem/vue-accordion": "^1.0.0-beta.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "vue": "^3.2.47",
+>>>>>>> 1eb4384662b38ba5a6e42a418292fb17eadf1be1
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
