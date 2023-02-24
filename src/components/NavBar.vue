@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from "vue-router";
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Brand Name</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Spectacular</h5>
           <button
             type="button"
             class="btn-close"
@@ -88,7 +88,7 @@ import { RouterLink, RouterView } from "vue-router";
         style="font-size: 2rem"
         aria-current="page"
         to="/"
-        >Brand Name</RouterLink
+        >Spectacular</RouterLink
       >
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
@@ -129,5 +129,8 @@ import { RouterLink, RouterView } from "vue-router";
 <style scoped>
 .navbar .navbar-toggler {
   border-color: #fff3f3;
+}
+.navbar-brand {
+  font-family: "Italiana", serif;
 }
 </style>

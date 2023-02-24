@@ -1,5 +1,5 @@
 <template>
-  <div class="fetch-card">
+  <div class="fetch-card" style="cursor: pointer" @click="redirectToProduct">
     <div class="row" v-if="items !== null">
       <div
         class="card"
@@ -11,7 +11,14 @@
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
 
-            <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
+            <!-- <i class="bi bi-suit-heart px-2"  style="font-size: 1.5rem"></i> -->
+            <i
+              class="bi bi-suit-heart px-2"
+              @click="buttonClick"
+              :style="{
+                color: active ? 'red' : 'black',
+              }"
+            ></i>
           </div>
         </div>
 
@@ -32,6 +39,7 @@ export default {
   data() {
     return {
       items: null,
+      active: false,
     };
   },
   methods: {
@@ -42,6 +50,14 @@ export default {
 
       this.items = val;
     },
+    buttonClick() {
+      this.active = !this.active;
+    },
+    redirectToProduct() {
+      this.$router.push({
+        path: "/product",
+      });
+    },
   },
 };
 </script>
@@ -51,11 +67,10 @@ export default {
 }
 .img-card img {
   padding: 10px;
+  height: 200px;
+  width: 270px;
 }
-.icon {
-  display: flex;
-  justify-content: space-between;
-}
+
 .row {
   justify-content: center;
 }
@@ -66,6 +81,7 @@ export default {
 }
 .img-card {
   position: relative;
+
   width: max-content;
 }
 .img-card img {
@@ -75,9 +91,12 @@ export default {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: red;
+  color: black;
 }
 .fetch-card {
   background-color: #fff3f3;
+}
+.bi-suit-heart {
+  font-size: 1.5rem;
 }
 </style>
