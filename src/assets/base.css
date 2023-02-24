@@ -3,4 +3,13 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  background-color: #fff3f3;
+}
+
+h2 {
+  font-family: "Italiana", serif;
+}
+
+p {
+  font-family: "Quicksand", sans-serif;
 }

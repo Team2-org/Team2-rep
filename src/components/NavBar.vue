@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import ModalLogin from "./ModalLogin.vue";
 </script>
 <template>
   <nav
@@ -34,10 +35,19 @@ import { RouterLink, RouterView } from "vue-router";
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <RouterLink class="nav-link active" aria-current="page" to="/"
+                >Home</RouterLink
+              >
+              <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <!-- <a class="nav-link" href="#">Link</a> -->
+              <RouterLink
+                class="nav-link active"
+                aria-current="page"
+                to="/about"
+                >About</RouterLink
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -74,14 +84,49 @@ import { RouterLink, RouterView } from "vue-router";
           </form>
         </div>
       </div>
-
-      <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
-        >Brand Name</a
+      <RouterLink
+        class="navbar-brand mx-auto"
+        style="font-size: 2rem"
+        aria-current="page"
+        to="/"
+        >Brand Name</RouterLink
       >
+      <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
+        >Brand Name</a -->
+
       <div class="nav-icon">
-        <i class="bi bi-person px-2" style="font-size: 1.5rem"></i>
-        <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
-        <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i>
+        <i
+          class="bi bi-person px-2"
+          @click="openModal"
+          role="link"
+          style="font-size: 1.5rem"
+        ></i>
+        <ModalLogin
+          :title="'Log In'"
+          :is-open="modalIsOpen"
+          @close="closeModal"
+        >
+        </ModalLogin>
+
+        <router-link to="/about" custom v-slot="{ navigate }">
+          <i
+            class="bi bi-suit-heart px-2"
+            style="font-size: 1.5rem"
+            @click="navigate"
+            role="link"
+          ></i>
+        </router-link>
+        <router-link to="/about" custom v-slot="{ navigate }">
+          <i
+            class="bi bi-cart2 px-2"
+            style="font-size: 1.5rem"
+            @click="navigate"
+            role="link"
+          ></i>
+        </router-link>
+        <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
+        <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
+        <!-- <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i> -->
       </div>
     </div>
   </nav>
@@ -92,3 +137,22 @@ import { RouterLink, RouterView } from "vue-router";
   border-color: #fff3f3;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      modalIsOpen: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.modalIsOpen = true;
+    },
+    closeModal() {
+      this.modalIsOpen = false;
+    },
+  },
+  components: { ModalLogin },
+};
+</script>
