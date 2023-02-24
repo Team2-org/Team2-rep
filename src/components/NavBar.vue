@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import ModalLogin from "./ModalLogin.vue";
 </script>
 <template>
   <nav
@@ -94,14 +95,19 @@ import { RouterLink, RouterView } from "vue-router";
         >Brand Name</a -->
 
       <div class="nav-icon">
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-person px-2"
-            @click="navigate"
-            role="link"
-            style="font-size: 1.5rem"
-          ></i>
-        </router-link>
+        <i
+          class="bi bi-person px-2"
+          @click="openModal"
+          role="link"
+          style="font-size: 1.5rem"
+        ></i>
+        <ModalLogin
+          :title="'Log In'"
+          :is-open="modalIsOpen"
+          @close="closeModal"
+        >
+        </ModalLogin>
+
         <router-link to="/about" custom v-slot="{ navigate }">
           <i
             class="bi bi-suit-heart px-2"
@@ -131,3 +137,22 @@ import { RouterLink, RouterView } from "vue-router";
   border-color: #fff3f3;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      modalIsOpen: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.modalIsOpen = true;
+    },
+    closeModal() {
+      this.modalIsOpen = false;
+    },
+  },
+  components: { ModalLogin },
+};
+</script>
