@@ -1,7 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import ModalLogin from "./ModalLogin.vue";
+
+import EmptyModal from "./EmptyModal.vue";
 import CartAccordion from "./CartAccordion.vue";
+
 </script>
 <template>
   <nav
@@ -98,16 +100,16 @@ import CartAccordion from "./CartAccordion.vue";
       <div class="nav-icon">
         <i
           class="bi bi-person px-2"
-          @click="openModal"
+          @click="openLmodal"
           role="link"
           style="font-size: 1.5rem"
         ></i>
-        <ModalLogin
+        <EmptyModal
           :title="'Log In'"
           :is-open="modalIsOpen"
           @close="closeModal"
         >
-        </ModalLogin>
+        </EmptyModal>
 
         <button
           class="bi bi-cart2 px-2"
@@ -172,7 +174,7 @@ export default {
     };
   },
   methods: {
-    openModal() {
+    openLmodal() {
       this.modalIsOpen = true;
     },
     closeModal() {
@@ -182,6 +184,8 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
-  components: { ModalLogin, CartAccordion },
+
+  components: { EmptyModal, CartAccordion},
+
 };
 </script>
