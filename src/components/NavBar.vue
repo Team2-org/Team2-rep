@@ -1,9 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-// import ModalLogin from "./ModalLogin.vue";
-import EmptyModal from "./EmptyModal.vue";
 
-// import ModalSignup from "./ModalSignup.vue";
+import EmptyModal from "./EmptyModal.vue";
+import CartAccordion from "./CartAccordion.vue";
+
 </script>
 <template>
   <nav
@@ -111,6 +111,21 @@ import EmptyModal from "./EmptyModal.vue";
         >
         </EmptyModal>
 
+        <button
+          class="bi bi-cart2 px-2"
+          @click="toggleAccordion"
+          role="link"
+          style="font-size: 1.5rem"
+        ></button>
+        <CartAccordion
+          v-if="isExpanded"
+          :title="'Shopping cart'"
+          :is-expanded="isExpanded"
+          @toggle="toggleAccordion"
+        >
+          <!-- Cart content goes here -->
+        </CartAccordion>
+
         <router-link to="/about" custom v-slot="{ navigate }">
           <i
             class="bi bi-suit-heart px-2"
@@ -120,12 +135,8 @@ import EmptyModal from "./EmptyModal.vue";
           ></i>
         </router-link>
         <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-cart2 px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
+          <!-- class="bi bi-cart2 px-2" -->
+          <i style="font-size: 1.5rem" @click="navigate" role="link"></i>
         </router-link>
         <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
         <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
@@ -139,6 +150,19 @@ import EmptyModal from "./EmptyModal.vue";
 .navbar .navbar-toggler {
   border-color: #fff3f3;
 }
+.navbar,
+bg-body-tertiary,
+fixed-top {
+  position: sticky;
+  border-bottom: 0.5px solid grey;
+}
+
+.bi,
+bi-cart2,
+px-2 {
+  background-color: transparent;
+  border: transparent;
+}
 </style>
 
 <script>
@@ -146,6 +170,7 @@ export default {
   data() {
     return {
       modalIsOpen: false,
+      isExpanded: false,
     };
   },
   methods: {
@@ -155,7 +180,12 @@ export default {
     closeModal() {
       this.modalIsOpen = false;
     },
+    toggleAccordion() {
+      this.isExpanded = !this.isExpanded;
+    },
   },
-  components: { EmptyModal },
+
+  components: { EmptyModal, CartAccordion},
+
 };
 </script>
