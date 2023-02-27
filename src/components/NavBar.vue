@@ -1,9 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-
 import EmptyModal from "./EmptyModal.vue";
 import CartAccordion from "./CartAccordion.vue";
-
 </script>
 <template>
   <nav
@@ -27,7 +25,7 @@ import CartAccordion from "./CartAccordion.vue";
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Brand Name</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Spectacular</h5>
           <button
             type="button"
             class="btn-close"
@@ -92,7 +90,7 @@ import CartAccordion from "./CartAccordion.vue";
         style="font-size: 2rem"
         aria-current="page"
         to="/"
-        >Brand Name</RouterLink
+        >Spectacular</RouterLink
       >
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
@@ -110,6 +108,14 @@ import CartAccordion from "./CartAccordion.vue";
           @close="closeModal"
         >
         </EmptyModal>
+        <router-link to="/about" custom v-slot="{ navigate }">
+          <i
+            class="bi bi-suit-heart px-2"
+            style="font-size: 1.5rem"
+            @click="navigate"
+            role="link"
+          ></i>
+        </router-link>
 
         <button
           class="bi bi-cart2 px-2"
@@ -125,22 +131,6 @@ import CartAccordion from "./CartAccordion.vue";
         >
           <!-- Cart content goes here -->
         </CartAccordion>
-
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-suit-heart px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
-        </router-link>
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <!-- class="bi bi-cart2 px-2" -->
-          <i style="font-size: 1.5rem" @click="navigate" role="link"></i>
-        </router-link>
-        <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i> -->
       </div>
     </div>
   </nav>
@@ -149,6 +139,10 @@ import CartAccordion from "./CartAccordion.vue";
 <style scoped>
 .navbar .navbar-toggler {
   border-color: #fff3f3;
+}
+
+.navbar-brand {
+  font-family: "Italiana", serif;
 }
 .navbar,
 bg-body-tertiary,
@@ -185,7 +179,6 @@ export default {
     },
   },
 
-  components: { EmptyModal, CartAccordion},
-
+  components: { EmptyModal, CartAccordion },
 };
 </script>
