@@ -1,11 +1,21 @@
 <script setup></script>
 
 <script>
-export default {
+/* export default {
   data() {
     return {
       ImageSource: "../assets/img/man-930397_1280glasses.jpg",
     };
+  },
+}; */
+export default {
+  methods: {
+    discover() {
+      window.scrollTo({
+        top: 731,
+        behavior: "smooth",
+      });
+    },
   },
 };
 </script>
@@ -14,23 +24,32 @@ export default {
   <div>
     <img
       class="hero-image"
-      src="../assets/img/man-930397_1280glasses.jpg"
-      alt="Cool guy with glasses"
+      src="../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg"
+      alt="Cool girl with
+    glasses"
     />
   </div>
   <div>
     <h1 class="hero-text1" style="position: absolute; z-index: 100">
-      Please buy our glasses 🥺 <br />
+      Högkvalitativa bågar till ett förnutigt pris<br />
     </h1>
-    <h2 class="hero-text2" style="position: absolute; z-index: 100">
-      😩PLEASE!
-    </h2>
+    <button
+      id="hero-btn"
+      class="hero-text2"
+      @click="discover"
+      style="position: absolute; z-index: 100"
+    >
+      Upptäck mer <br />
+      ▼
+    </button>
   </div>
 </template>
 
 <style scoped>
 /* Desktop */
 .hero-image {
+  /*   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)),
+    url("../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg"); */
   background-color: pink;
   position: relative;
   background-attachment: fixed;
@@ -40,27 +59,36 @@ export default {
   height: 100vh;
   object-fit: cover;
   background-position: center;
-  z-index: 100;
 }
 
 .hero-text1 {
+  text-align: center;
   position: absolute;
-  top: 30%;
-  left: 25%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  color: pink;
+  color: rgb(255 243 243);
   font-size: 3rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  line-height: 3.5rem;
+  letter-spacing: 0.25rem;
+  font-weight: 300;
 }
+
 .hero-text2 {
   position: absolute;
-  top: 40%;
-  left: 35%;
+  text-align: center;
+  font-weight: 100;
+  top: 90%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  color: pink;
-  font-size: 5rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  color: rgb(255 243 243);
+  font-size: 2rem;
+}
+
+#hero-btn {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
 }
 /* Tablet */
 @media only screen and (max-width: 1000px) {
@@ -68,10 +96,10 @@ export default {
     height: 90vh;
   }
   .hero-text1 {
-    display: none;
+    display: inline;
   }
   .hero-text2 {
-    display: none;
+    display: inline;
   }
 }
 
@@ -80,10 +108,10 @@ export default {
     height: 80vh;
   }
   .hero-text1 {
-    display: none;
+    display: inline;
   }
   .hero-text2 {
-    display: none;
+    display: inline;
   }
 }
 @media only screen and (max-width: 700px) {
