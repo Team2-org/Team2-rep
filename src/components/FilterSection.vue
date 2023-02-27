@@ -8,7 +8,6 @@
 <style scoped>
 .filterButton {
   display: flex;
-  margin-top: 100px;
   justify-content: center;
 
   padding: 9px 15px;
