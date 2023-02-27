@@ -1,42 +1,97 @@
 <script></script>
 <template>
-  <div class="container">
+  <div class="product-source">
+  <div id="product-page">
     <img
       src="../../public/img/bartosz-sujkowski-uxzWfwOIyT8-unsplash.jpg"
-      alt="Snow"
-      style="width: 100%"
+      class="center"
+      alt="glass"
     />
+    <div class="product-details">
+      <div class="product-brand">
+        <h3>Name, Brand</h3>
+        <h5>1812 kr</h5>
+      </div>
+      <div class="product-icon">
+        <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
+        <input type="button" class="card-btn" value="Add to cart" />
+      </div>
+    </div>
+    <div class="product-description">
+      <h4>Description</h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum ut tempora
+        aspernatur facilis beatae reiciendis perferendis quam iure vero
+        repellat?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dolore
+        temporibus, qui quas magnam quidem? Sapiente perspiciatis reiciendis
+        odio quod explicabo recusandae culpa possimus amet dicta error,
+        repellendus sit ipsa, inventore dolore est tempora eveniet consequuntur
+        hic placeat, fugiat labore?
+      </p>
+      <ul>
+        <li>Category</li>
+        <li>Color</li>
+        <li>Material</li>
+        <li>Size</li>
+        <li>"Form"</li>
+      </ul>
+    </div>
+  </div>
   </div>
 </template>
 <style scoped>
-.container {
-  position: relative;
-  width: 100%;
-  margin: 10%;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 10%;
+
 }
-
-.container img {
-  width: 100%;
-  height: auto;
+.card-btn {
+  background-color: rgba(134, 179, 147, 57%);
+  padding: 5px;
+  font-family: Quicksand;
+  font-size: 20px;
 }
+.product-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-.container .btn {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-
-  color: white;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
+align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 20px;
 }
+.product-icon {
+  display: flex;
+  flex-direction: column;
+}
+.bi-suit-heart {
+  margin-left: 75px;
+  padding-bottom: 10px;
+}
+.product-description {
+  margin-left: auto;
+  margin-right: auto;
 
-.container .btn:hover {
-  background-color: black;
+  width: 70%;
+  margin-top: 5%;
+}
+.product-source {
+  background-color: #fff3f3;
+  padding-bottom: 90px;
+  padding-top: 1px;
+}
+#product-page {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  background-color: white;
 }
 </style>

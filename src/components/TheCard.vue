@@ -1,5 +1,5 @@
 <template>
-  <div class="fetch-card" style="cursor: pointer" @click="redirectToProduct">
+  <div class="fetch-card">
     <div class="row" v-if="items !== null">
       <div
         class="card"
@@ -23,8 +23,17 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ item.brand }}</h6>
+          <h5
+            class="card-title"
+            style="cursor: pointer"
+            @click="redirectToProduct"
+          >
+            {{ item.name }}
+          </h5>
+
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ item.brand }}
+          </h6>
           <p class="card-text">{{ item.price }} Sek</p>
         </div>
       </div>
@@ -65,14 +74,13 @@ export default {
 .card {
   margin: 3%;
 }
+.row {
+  justify-content: center;
+}
 .img-card img {
   padding: 10px;
   height: 200px;
   width: 270px;
-}
-
-.row {
-  justify-content: center;
 }
 
 .img-wrapper {
