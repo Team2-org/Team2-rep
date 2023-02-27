@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import ModalLogin from "./ModalLogin.vue";
+// import ModalLogin from "./ModalLogin.vue";
+import EmptyModal from "./EmptyModal.vue";
+
+// import ModalSignup from "./ModalSignup.vue";
 </script>
 <template>
   <nav
@@ -97,16 +100,16 @@ import ModalLogin from "./ModalLogin.vue";
       <div class="nav-icon">
         <i
           class="bi bi-person px-2"
-          @click="openModal"
+          @click="openLmodal"
           role="link"
           style="font-size: 1.5rem"
         ></i>
-        <ModalLogin
+        <EmptyModal
           :title="'Log In'"
           :is-open="modalIsOpen"
           @close="closeModal"
         >
-        </ModalLogin>
+        </EmptyModal>
 
         <router-link to="/about" custom v-slot="{ navigate }">
           <i
@@ -146,13 +149,13 @@ export default {
     };
   },
   methods: {
-    openModal() {
+    openLmodal() {
       this.modalIsOpen = true;
     },
     closeModal() {
       this.modalIsOpen = false;
     },
   },
-  components: { ModalLogin },
+  components: { EmptyModal },
 };
 </script>
