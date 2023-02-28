@@ -22,13 +22,18 @@
         </div>
 
         <div class="card-body">
-          <h5
+          <!-- <h5
             class="card-title"
             style="cursor: pointer"
             @click="redirectToProduct"
           >
             {{ item.name }}
-          </h5>
+          </h5> -->
+          <router-link :to="{ path: `/products/${item.id}` }"
+            ><h5 class="card-title">
+              {{ item.name }}
+            </h5></router-link
+          >
 
           <h6 class="card-subtitle mb-2 text-muted">
             {{ item.brand }}
@@ -40,32 +45,35 @@
   </div>
 </template>
 <script>
+import items from "../../public/products.json";
 export default {
-  mounted() {
-    this.fetchList();
-  },
+  //   mounted() {
+  //     this.fetchList();
+  //   },
   data() {
     return {
-      items: null,
+      //   items: null,
+      items,
+
       active: false,
     };
   },
   methods: {
-    async fetchList() {
-      const res = await fetch("../../public/products.json");
+    // async fetchList() {
+    //   const res = await fetch("../../public/products.json");
 
-      const val = await res.json();
+    //   const val = await res.json();
 
-      this.items = val;
-    },
+    //   this.items = val;
+    // },
     buttonClick() {
       this.active = !this.active;
     },
-    redirectToProduct() {
-      this.$router.push({
-        path: "/product",
-      });
-    },
+    // redirectToProduct() {
+    //   this.$router.push({
+    //     path: "/product",
+    //   });
+    // },
   },
 };
 </script>
@@ -108,5 +116,8 @@ export default {
 }
 .row {
   width: 100%;
+}
+.card-title {
+  color: black;
 }
 </style>

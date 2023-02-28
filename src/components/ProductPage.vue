@@ -1,16 +1,12 @@
 <script></script>
 <template>
-  <div class="product-source">
+  <div class="product-source" v-if="item">
     <div id="product-page">
-      <img
-        src="../../public/img/bartosz-sujkowski-uxzWfwOIyT8-unsplash.jpg"
-        class="center"
-        alt="glass"
-      />
+      <img :src="item.image" class="center" alt="glass" />
       <div class="product-details">
         <div class="product-brand">
-          <h3>Name, Brand</h3>
-          <h5>1812 kr</h5>
+          <h3>{{ item.name }}, {{ item.brand }}</h3>
+          <h5>{{ item.price }} kr</h5>
         </div>
         <div class="product-icon">
           <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
@@ -32,11 +28,11 @@
           consequuntur hic placeat, fugiat labore?
         </p>
         <ul>
-          <li>Category</li>
-          <li>Color</li>
-          <li>Material</li>
-          <li>Size</li>
-          <li>"Form"</li>
+          <li>{{ item.description }}</li>
+          <li>{{ item.color }}</li>
+          <li>{{ item.material }}</li>
+          <li>{{ item.frame - size }}</li>
+          <li>{{ item.form }}</li>
         </ul>
       </div>
     </div>
@@ -108,4 +104,18 @@
 }
 </style>
 
+<script>
+import items from "../../public/products.json";
 
+export default {
+  data() {
+    return {
+      item: null,
+    };
+  },
+  created() {
+    const itemId = this.$route.params.id;
+    this.item = items.find((p) => p.id == itemId);
+  },
+};
+</script>
