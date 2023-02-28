@@ -157,6 +157,12 @@ px-2 {
   background-color: transparent;
   border: transparent;
 }
+.offcanvas-start {
+  background-color: #fff3f3;
+}
+.dropdown-menu {
+  background-color: #fff3f3;
+}
 </style>
 
 <script>
