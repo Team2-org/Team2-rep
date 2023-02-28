@@ -25,7 +25,7 @@ import CartAccordion from "./CartAccordion.vue";
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Brand Name</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Spectacular</h5>
           <button
             type="button"
             class="btn-close"
@@ -90,7 +90,7 @@ import CartAccordion from "./CartAccordion.vue";
         style="font-size: 2rem"
         aria-current="page"
         to="/"
-        >Brand Name</RouterLink
+        >Spectacular</RouterLink
       >
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
@@ -108,7 +108,16 @@ import CartAccordion from "./CartAccordion.vue";
           @close="closeModal"
         >
         </EmptyModal>
+        <router-link to="/about" custom v-slot="{ navigate }">
+          <i
+            class="bi bi-suit-heart px-2"
+            style="font-size: 1.5rem"
+            @click="navigate"
+            role="link"
+          ></i>
+        </router-link>
 
+<<<<<<< HEAD
         <router-link to="/about" custom v-slot="{ navigate }">
           <i
             class="bi bi-suit-heart px-2"
@@ -124,6 +133,22 @@ import CartAccordion from "./CartAccordion.vue";
         <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
         <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
         <!-- <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i> -->
+=======
+        <button
+          class="bi bi-cart2 px-2"
+          @click="toggleAccordion"
+          role="link"
+          style="font-size: 1.5rem"
+        ></button>
+        <CartAccordion
+          v-if="isExpanded"
+          :title="'Shopping cart'"
+          :is-expanded="isExpanded"
+          @toggle="toggleAccordion"
+        >
+          <!-- Cart content goes here -->
+        </CartAccordion>
+>>>>>>> b2c0e8fb5a1d8a03ab8c59240d038e3fc382d5bf
       </div>
     </div>
   </nav>
@@ -132,6 +157,10 @@ import CartAccordion from "./CartAccordion.vue";
 <style scoped>
 .navbar .navbar-toggler {
   border-color: #fff3f3;
+}
+
+.navbar-brand {
+  font-family: "Italiana", serif;
 }
 .navbar,
 bg-body-tertiary,
@@ -167,6 +196,10 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2c0e8fb5a1d8a03ab8c59240d038e3fc382d5bf
   components: { EmptyModal, CartAccordion },
 };
 </script>
