@@ -147,7 +147,6 @@ import WishlistAccordion from "./WishlistAccordion.vue";
 .navbar .navbar-toggler {
   border-color: #fff3f3;
 }
-
 .navbar-brand {
   font-family: "Italiana", serif;
 }
@@ -157,7 +156,6 @@ fixed-top {
   position: sticky;
   border-bottom: 0.5px solid grey;
 }
-
 .bi,
 bi-cart2,
 px-2 {
@@ -191,5 +189,6 @@ export default {
   },
 
   components: { EmptyModal, CartAccordion, WishlistAccordion },
+
 };
 </script>
