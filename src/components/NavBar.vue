@@ -117,23 +117,6 @@ import CartAccordion from "./CartAccordion.vue";
           ></i>
         </router-link>
 
-<<<<<<< HEAD
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-suit-heart px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
-        </router-link>
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <!-- class="bi bi-cart2 px-2" -->
-          <i style="font-size: 1.5rem" @click="navigate" role="link"></i>
-        </router-link>
-        <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i> -->
-=======
         <button
           class="bi bi-cart2 px-2"
           @click="toggleAccordion"
@@ -148,7 +131,6 @@ import CartAccordion from "./CartAccordion.vue";
         >
           <!-- Cart content goes here -->
         </CartAccordion>
->>>>>>> b2c0e8fb5a1d8a03ab8c59240d038e3fc382d5bf
       </div>
     </div>
   </nav>
@@ -158,7 +140,6 @@ import CartAccordion from "./CartAccordion.vue";
 .navbar .navbar-toggler {
   border-color: #fff3f3;
 }
-
 .navbar-brand {
   font-family: "Italiana", serif;
 }
@@ -168,7 +149,6 @@ fixed-top {
   position: sticky;
   border-bottom: 0.5px solid grey;
 }
-
 .bi,
 bi-cart2,
 px-2 {
@@ -202,10 +182,6 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> b2c0e8fb5a1d8a03ab8c59240d038e3fc382d5bf
   components: { EmptyModal, CartAccordion },
 };
 </script>
