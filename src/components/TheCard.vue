@@ -11,7 +11,6 @@
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
 
-            <!-- <i class="bi bi-suit-heart px-2"  style="font-size: 1.5rem"></i> -->
             <i
               class="bi bi-suit-heart px-2"
               @click="buttonClick"
@@ -106,5 +105,8 @@ export default {
 }
 .bi-suit-heart {
   font-size: 1.5rem;
+}
+.row {
+  width: 100%;
 }
 </style>
