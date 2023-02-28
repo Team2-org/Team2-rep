@@ -6,12 +6,11 @@ import SignUp from "./SignUp.vue";
 <template>
   <div class="modal-overlay" v-if="isOpen">
     <div class="modal-container">
+      <button id="closebtn" @click="closeModal">X</button>
       <div v-show="toggle"><LogIn></LogIn></div>
-      <!-- <button id="loginbtn" @click="closeModal">CLOSE</button> -->
+
       <div v-show="!toggle"><SignUp></SignUp></div>
-      <button id="changeModal" @click="toggle = !toggle">
-        click here 
-      </button>
+      <button id="changeModal" @click="toggle = !toggle">click here</button>
 
       <slot></slot>
     </div>
@@ -53,6 +52,14 @@ import SignUp from "./SignUp.vue";
   .modal-container {
     width: 45vw;
   }
+}
+#closebtn {
+  width: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff3f3;
+  border: none;
 }
 #changeModal {
   color: grey;
