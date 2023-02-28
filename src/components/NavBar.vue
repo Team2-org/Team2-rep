@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import EmptyModal from "./EmptyModal.vue";
 import CartAccordion from "./CartAccordion.vue";
+import WishlistAccordion from "./WishlistAccordion.vue";
 </script>
 <template>
   <nav
@@ -108,14 +109,20 @@ import CartAccordion from "./CartAccordion.vue";
           @close="closeModal"
         >
         </EmptyModal>
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-suit-heart px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
-        </router-link>
+
+        <button
+          class="bi bi-suit-heart px-2"
+          style="font-size: 1.5rem"
+          @click="toggleWishlist"
+          role="link"
+        ></button>
+        <WishlistAccordion
+          v-if="isWishlistExpanded"
+          :title="'Wishlist'"
+          :toggle-wishlist="isWishlistExpanded"
+          @toggle="toggleWishlist"
+        >
+        </WishlistAccordion>
 
         <button
           class="bi bi-cart2 px-2"
@@ -155,12 +162,6 @@ px-2 {
   background-color: transparent;
   border: transparent;
 }
-.offcanvas-start {
-  background-color: #fff3f3;
-}
-.dropdown-menu {
-  background-color: #fff3f3;
-}
 </style>
 
 <script>
@@ -169,6 +170,7 @@ export default {
     return {
       modalIsOpen: false,
       isExpanded: false,
+      isWishlistExpanded: false,
     };
   },
   methods: {
@@ -181,7 +183,11 @@ export default {
     toggleAccordion() {
       this.isExpanded = !this.isExpanded;
     },
+    toggleWishlist() {
+      this.isWishlistExpanded = !this.isWishlistExpanded;
+    },
   },
-  components: { EmptyModal, CartAccordion },
+
+  components: { EmptyModal, CartAccordion, WishlistAccordion },
 };
 </script>
