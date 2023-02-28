@@ -106,4 +106,7 @@ export default {
 .bi-suit-heart {
   font-size: 1.5rem;
 }
+.row {
+  width: 100%;
+}
 </style>
