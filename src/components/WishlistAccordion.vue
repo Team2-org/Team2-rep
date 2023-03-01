@@ -14,12 +14,7 @@
       <div class="wishlist-title">{{ title }}</div>
 
       <div class="wishlist-items-container">
-        <!-- Put items-container from json here?
-        <p>testitesti</p>
-        <div v-for="item in wishlist" :key="item.id">
-          <p>{{ item.name }}</p>
-        </div>
-      </div> -->
+      
         <!-- <div v-if="item === null"><p>Du har inget i varukorgen.</p></div> -->
         <div class="fetch-card">
           <div class="row" v-if="items !== null">
@@ -86,27 +81,23 @@ export default {
 
 .wishlist-container {
   position: fixed;
-  display: flex;
+  display: block;
   right: 0;
-
-  transition: transform 0.4s ease-out;
-  transition-delay: 0.2s;
+  transform: translateX(100%); /* change to translateX(100%) */
   background-color: #fff3f3;
   border: 1px solid #ccc;
-  border-top: transparent;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
+  transition: transform 0.3s ease-in-out; /* add transition property */
 }
 
 .wishlist-container.show {
+  margin-top: 1rem;
   display: block;
-  transform: translateX(-10%);
-  transition: transform 0.1s ease-in;
-  top: 1.125rem;
+  transform: translateX(0); /* change to translateX(0) */
   height: 80vh;
   width: 30vw;
-  padding-left: 1.5rem;
 }
 
 .wishlist-content {
@@ -134,7 +125,7 @@ export default {
 }
 .wishlist-items-container {
   font-family: Quicksand;
-  height: 80%;
+  height: 75%;
   background: #fff;
   overflow-y: auto;
 }
@@ -150,6 +141,7 @@ export default {
 .img-card img {
   padding: 10px;
   height: 100px;
+  display: block;
   /* width: 270px; */
 }
 
@@ -162,7 +154,30 @@ export default {
 
   width: max-content;
 }
-.img-card img {
-  display: block;
+
+  
+
+@media (max-width: 940px) {
+  .wishlist-container.show {
+    height: 80vh;
+    width: 40vw;
+  }
+
+  .cont-shop {
+    font-weight: 200;
+    font-size: medium;
+    width: 40vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .wishlist-container.show {
+    width: 80vw;
+    height: 80vh;
+  }
+  .cont-shop {
+    width: 80vw;
+  }
+
 }
 </style>
