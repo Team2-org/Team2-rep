@@ -7,6 +7,7 @@
         v-for="item in items"
         :key="item.id"
       >
+        <button @click="addToWishlist(item)">Add to wishlist</button>
         <div class="img-wrapper">
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
@@ -48,6 +49,8 @@ export default {
     return {
       items: null,
       active: false,
+      wishlist: [],
+      item: "",
     };
   },
   methods: {
@@ -65,6 +68,10 @@ export default {
       this.$router.push({
         path: "/product",
       });
+    },
+    addToWishlist(item) {
+      this.wishlist.push(item);
+      localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
     },
   },
 };

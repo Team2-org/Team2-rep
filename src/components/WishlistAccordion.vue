@@ -14,8 +14,40 @@
       <div class="wishlist-title">{{ title }}</div>
 
       <div class="wishlist-items-container">
-        <!--Put items-container from json here?-->
+        <!-- Put items-container from json here?
         <p>testitesti</p>
+        <div v-for="item in wishlist" :key="item.id">
+          <p>{{ item.name }}</p>
+        </div>
+      </div> -->
+        <!-- <div v-if="item === null"><p>Du har inget i varukorgen.</p></div> -->
+        <div class="fetch-card">
+          <div class="row" v-if="items !== null">
+            <div class="card" v-for="item in wishlist" :key="item.id">
+              <div class="img-wrapper">
+                <div class="img-card">
+                  <img :src="item.image" class="card-img-top" alt="..." />
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h5
+                  class="card-title"
+                  id="card-title"
+                  style="cursor: pointer"
+                  @click="redirectToProduct"
+                >
+                  {{ item.name }}
+                </h5>
+
+                <h6 class="card-subtitle mb-2 text-muted">
+                  {{ item.brand }}
+                </h6>
+                <p class="card-text">{{ item.price }} Sek</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -30,6 +62,9 @@ export default {
     return {
       isWishlistExpanded: true,
     };
+  },
+  created() {
+    this.wishlist = JSON.parse(localStorage.getItem("wishlist"));
   },
   methods: {
     toggleWishlist() {
@@ -101,5 +136,33 @@ export default {
   font-family: Quicksand;
   height: 80%;
   background: #fff;
+  overflow-y: auto;
+}
+
+.card {
+  margin: 3%;
+  width: 8rem;
+  height: 10vw;
+}
+.row {
+  justify-content: center;
+}
+.img-card img {
+  padding: 10px;
+  height: 100px;
+  /* width: 270px; */
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.img-card {
+  position: relative;
+
+  width: max-content;
+}
+.img-card img {
+  display: block;
 }
 </style>
