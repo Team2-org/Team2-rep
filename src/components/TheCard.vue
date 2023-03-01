@@ -7,6 +7,7 @@
         v-for="item in items"
         :key="item.id"
       >
+        <button @click="addToWishlist(item)">Add to wishlist</button>
         <div class="img-wrapper">
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
@@ -22,13 +23,6 @@
         </div>
 
         <div class="card-body">
-          <!-- <h5
-            class="card-title"
-            style="cursor: pointer"
-            @click="redirectToProduct"
-          >
-            {{ item.name }}
-          </h5> -->
           <router-link :to="{ path: `/products/${item.id}` }"
             ><h5 class="card-title">
               {{ item.name }}
@@ -52,11 +46,17 @@ export default {
       items,
 
       active: false,
+      wishlist: [],
+      item: "",
     };
   },
   methods: {
     buttonClick() {
       this.active = !this.active;
+    },
+    addToWishlist(item) {
+      this.wishlist.push(item);
+      localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
     },
   },
 };
