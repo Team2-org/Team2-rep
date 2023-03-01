@@ -23,13 +23,11 @@
         </div>
 
         <div class="card-body">
-          <h5
-            class="card-title"
-            style="cursor: pointer"
-            @click="redirectToProduct"
+          <router-link :to="{ path: `/products/${item.id}` }"
+            ><h5 class="card-title">
+              {{ item.name }}
+            </h5></router-link
           >
-            {{ item.name }}
-          </h5>
 
           <h6 class="card-subtitle mb-2 text-muted">
             {{ item.brand }}
@@ -41,33 +39,20 @@
   </div>
 </template>
 <script>
+import items from "../../public/products.json";
 export default {
-  mounted() {
-    this.fetchList();
-  },
   data() {
     return {
-      items: null,
+      items,
+
       active: false,
       wishlist: [],
       item: "",
     };
   },
   methods: {
-    async fetchList() {
-      const res = await fetch("../../public/products.json");
-
-      const val = await res.json();
-
-      this.items = val;
-    },
     buttonClick() {
       this.active = !this.active;
-    },
-    redirectToProduct() {
-      this.$router.push({
-        path: "/product",
-      });
     },
     addToWishlist(item) {
       this.wishlist.push(item);
@@ -115,5 +100,8 @@ export default {
 }
 .row {
   width: 100%;
+}
+.card-title {
+  color: black;
 }
 </style>
