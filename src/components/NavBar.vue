@@ -189,6 +189,5 @@ export default {
   },
 
   components: { EmptyModal, CartAccordion, WishlistAccordion },
-
 };
 </script>
