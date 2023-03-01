@@ -31,7 +31,7 @@
           <li>{{ item.description }}</li>
           <li>{{ item.color }}</li>
           <li>{{ item.material }}</li>
-          <li>{{ item.frame - size }}</li>
+          <li>{{ item["frame-size"] }}</li>
           <li>{{ item.form }}</li>
         </ul>
       </div>

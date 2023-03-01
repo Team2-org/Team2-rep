@@ -47,33 +47,17 @@
 <script>
 import items from "../../public/products.json";
 export default {
-  //   mounted() {
-  //     this.fetchList();
-  //   },
   data() {
     return {
-      //   items: null,
       items,
 
       active: false,
     };
   },
   methods: {
-    // async fetchList() {
-    //   const res = await fetch("../../public/products.json");
-
-    //   const val = await res.json();
-
-    //   this.items = val;
-    // },
     buttonClick() {
       this.active = !this.active;
     },
-    // redirectToProduct() {
-    //   this.$router.push({
-    //     path: "/product",
-    //   });
-    // },
   },
 };
 </script>
