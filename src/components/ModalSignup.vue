@@ -1,41 +1,47 @@
-<script setup>
-// import ModalSignup from "./ModalSignup.vue";
-</script>
-
 <template>
   <div class="modal-overlay" v-if="isOpen">
     <div class="modal-container">
-      <h2>Log In</h2>
+      <h2>Sign Up</h2>
 
       <form id="loginForm">
-        <p id="emailLabel">E-mail</p>
-        <input type="text" id="email" placeholder="name@mail.com" />
-        <p id="passwordLabel">Password</p>
-        <input type="text" id="password" />
-        <button id="loginbtn" @click="closeModal">Log in</button>
+        <p class="inputLabel" id="firstLabel">First name</p>
+        <input
+          class="formInput"
+          type="text"
+          id="firstName"
+          placeholder="First name"
+        />
+        <p class="inputLabel" id="lastLabel">Last name</p>
+        <input
+          class="formInput"
+          type="text"
+          id="email"
+          placeholder="Last name"
+        />
+        <p class="inputLabel" id="emailLabel">E-mail</p>
+        <input
+          class="formInput"
+          type="text"
+          id="email"
+          placeholder="name@mail.com"
+        />
+
+        <p class="inputLabel" id="passwordLabel">Password</p>
+        <input class="formInput" type="text" id="password" />
+        <p class="inputLabel" id="passwordLabel">Comfirm password</p>
+        <input class="formInput" type="text" id="comPassword" />
+
+        <button id="loginbtn" @click="closeModal">Sign Up</button>
       </form>
       <p>
-        Not a member yet? <span>Sign in here</span>
-        <!-- <button id="signup" @click="openModal">Sign in here</button>
-        <ModalSignup
-          :title="'Sign Up'"
-          :is-open="modalIsOpen"
-          @close="closeModal"
-        >
-        </ModalSignup> -->
-
-        <!-- <i
-          class="bi bi-person px-2"
-          @click="openModal"
-          role="link"
-          style="font-size: 1.5rem"
-        ></i>
+        Already a member?
+        <button id="signup" @click="openLogin">Log in here</button>
         <ModalLogin
-          :title="'Log In'"
+          :title="'Log in'"
           :is-open="modalIsOpen"
           @close="closeModal"
         >
-        </ModalLogin> -->
+        </ModalLogin>
       </p>
       <slot></slot>
     </div>
@@ -80,9 +86,9 @@
 }
 
 /* h2 {
-  text-align: center;
-  margin-top: 2vh;
-} */
+    text-align: center;
+    margin-top: 2vh;
+  } */
 input {
   border-radius: 5px;
 }
@@ -92,11 +98,6 @@ input {
   border: none;
   border-radius: 5px;
   margin-bottom: 2vh;
-}
-
-#signup {
-  border: none;
-  background-color: none;
 }
 
 #loginForm {
@@ -112,26 +113,16 @@ input {
   }
 }
 
-#passwordLabel {
+.inputLabel {
   padding: 0;
   margin: 0;
   text-align: start;
 }
 
-#password {
+.formInput {
   width: 100%;
   margin-bottom: 2vh;
   margin-top: 0vh;
-}
-
-#emailLabel {
-  padding: 0;
-  margin: 0;
-  text-align: start;
-}
-#email {
-  width: 100%;
-  margin-bottom: 2vh;
 }
 
 span {
@@ -140,11 +131,9 @@ span {
 </style>
 
 <script>
-export default {
-  data() {
-    return { modalIsOpen: false };
-  },
+import ModalLogin from "./ModalLogin.vue";
 
+export default {
   props: {
     title: String,
     isOpen: Boolean,
@@ -153,13 +142,10 @@ export default {
     closeModal() {
       this.$emit("close");
     },
-    openModal() {
+    openLogin() {
       this.modalIsOpen = true;
     },
-    // closeModal() {
-    //   this.modalIsOpen = false;
-    // },
   },
-  //   components: { ModalSignup },
+  components: { ModalLogin },
 };
 </script>

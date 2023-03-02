@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "image": "./img/bartosz-sujkowski-0zA84TFRjI8-unsplash.jpg",
+    "alt": "Glasses Image",
+    "name": "Wishlist test",
+    "brand": "Browline",
+    "price": "899",
+    "color": "black",
+    "material": "mixed",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    "frame-size": "large, medium",
+    "form": "cat-eye"
+  },
+  {
+    "id": "",
+    "image": "",
+    "alt": "",
+    "name": "",
+    "brand": "",
+    "price": "",
+    "color": "",
+    "material": "",
+    "description": "",
+    "frame-size": "",
+    "form": ""
+  }
+]

@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import ModalLogin from "./ModalLogin.vue";
+import EmptyModal from "./EmptyModal.vue";
+import CartAccordion from "./CartAccordion.vue";
+import WishlistAccordion from "./WishlistAccordion.vue";
 </script>
 <template>
   <nav
@@ -24,7 +26,7 @@ import ModalLogin from "./ModalLogin.vue";
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Brand Name</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Spectacular</h5>
           <button
             type="button"
             class="btn-close"
@@ -89,44 +91,53 @@ import ModalLogin from "./ModalLogin.vue";
         style="font-size: 2rem"
         aria-current="page"
         to="/"
-        >Brand Name</RouterLink
+        >Spectacular</RouterLink
       >
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
 
       <div class="nav-icon">
-        <i
+        <button
           class="bi bi-person px-2"
-          @click="openModal"
+          @click="openLmodal"
           role="link"
           style="font-size: 1.5rem"
-        ></i>
-        <ModalLogin
+        ></button>
+        <EmptyModal
           :title="'Log In'"
           :is-open="modalIsOpen"
           @close="closeModal"
         >
-        </ModalLogin>
+        </EmptyModal>
 
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-suit-heart px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
-        </router-link>
-        <router-link to="/about" custom v-slot="{ navigate }">
-          <i
-            class="bi bi-cart2 px-2"
-            style="font-size: 1.5rem"
-            @click="navigate"
-            role="link"
-          ></i>
-        </router-link>
-        <!-- <i class="bi bi-person px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
-        <!-- <i class="bi bi-cart2 px-2" style="font-size: 1.5rem"></i> -->
+        <button
+          class="bi bi-suit-heart px-2"
+          style="font-size: 1.5rem"
+          @click="toggleWishlist"
+          role="link"
+        ></button>
+        <WishlistAccordion
+          v-if="isWishlistExpanded"
+          :title="'Wishlist'"
+          :toggle-wishlist="isWishlistExpanded"
+          @toggle="toggleWishlist"
+        >
+        </WishlistAccordion>
+
+        <button
+          class="bi bi-cart2 px-2"
+          @click="toggleAccordion"
+          role="link"
+          style="font-size: 1.5rem"
+        ></button>
+        <CartAccordion
+          v-if="isExpanded"
+          :title="'Shopping cart'"
+          :is-expanded="isExpanded"
+          @toggle="toggleAccordion"
+        >
+          <!-- Cart content goes here -->
+        </CartAccordion>
       </div>
     </div>
   </nav>
@@ -136,6 +147,27 @@ import ModalLogin from "./ModalLogin.vue";
 .navbar .navbar-toggler {
   border-color: #fff3f3;
 }
+.navbar-brand {
+  font-family: "Italiana", serif;
+}
+.navbar,
+bg-body-tertiary,
+fixed-top {
+  position: sticky;
+  border-bottom: 0.5px solid grey;
+}
+.bi,
+bi-cart2,
+px-2 {
+  background-color: transparent;
+  border: transparent;
+}
+.offcanvas-start {
+  background-color: #fff3f3;
+}
+.dropdown-menu {
+  background-color: #fff3f3;
+}
 </style>
 
 <script>
@@ -143,16 +175,25 @@ export default {
   data() {
     return {
       modalIsOpen: false,
+      isExpanded: false,
+      isWishlistExpanded: false,
     };
   },
   methods: {
-    openModal() {
+    openLmodal() {
       this.modalIsOpen = true;
     },
     closeModal() {
       this.modalIsOpen = false;
     },
+    toggleAccordion() {
+      this.isExpanded = !this.isExpanded;
+    },
+    toggleWishlist() {
+      this.isWishlistExpanded = !this.isWishlistExpanded;
+    },
   },
-  components: { ModalLogin },
+
+  components: { EmptyModal, CartAccordion, WishlistAccordion },
 };
 </script>
