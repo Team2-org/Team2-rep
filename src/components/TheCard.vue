@@ -14,16 +14,18 @@
 
             <i
               class="bi bi-suit-heart px-2"
-              @click="buttonClick"
+              @click="toggleActive(item)"
               :style="{
-                color: active ? 'red' : 'black',
+                color: item.isActive ? 'red' : 'black',
               }"
             ></i>
           </div>
         </div>
 
         <div class="card-body">
-          <router-link :to="{ path: `/products/${item.id}` }"
+          <router-link
+            class="card-heading"
+            :to="{ path: `/products/${item.id}` }"
             ><h5 class="card-title">
               {{ item.name }}
             </h5></router-link
@@ -43,7 +45,8 @@ import items from "../../public/products.json";
 export default {
   data() {
     return {
-      items,
+      // items,
+      items: items.map((item) => ({ ...item, isActive: false })),
 
       active: false,
       wishlist: [],
@@ -51,9 +54,10 @@ export default {
     };
   },
   methods: {
-    buttonClick() {
-      this.active = !this.active;
+    toggleActive(item) {
+      item.isActive = !item.isActive;
     },
+
     addToWishlist(item) {
       this.wishlist.push(item);
       localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
@@ -91,17 +95,20 @@ export default {
   bottom: 10px;
   right: 10px;
   color: black;
+  font-size: 1.5rem;
 }
+
 .fetch-card {
   background-color: #fff3f3;
 }
-.bi-suit-heart {
-  font-size: 1.5rem;
-}
+
 .row {
   width: 100%;
 }
 .card-title {
   color: black;
+}
+.card-heading {
+  text-decoration: none;
 }
 </style>
