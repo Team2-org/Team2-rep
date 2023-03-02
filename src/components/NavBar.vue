@@ -97,12 +97,12 @@ import WishlistAccordion from "./WishlistAccordion.vue";
         >Brand Name</a -->
 
       <div class="nav-icon">
-        <i
+        <button
           class="bi bi-person px-2"
           @click="openLmodal"
           role="link"
           style="font-size: 1.5rem"
-        ></i>
+        ></button>
         <EmptyModal
           :title="'Log In'"
           :is-open="modalIsOpen"
