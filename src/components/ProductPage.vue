@@ -28,7 +28,7 @@
           consequuntur hic placeat, fugiat labore?
         </p>
         <ul>
-          <li>{{ item.description }}</li>
+          <!-- <li>{{ item.description }}</li> -->
           <li>{{ item.color }}</li>
           <li>{{ item.material }}</li>
           <li>{{ item["frame-size"] }}</li>
@@ -78,6 +78,7 @@
   padding-bottom: 15px;
   width: 70%;
   margin-top: 5%;
+  font-family: Quicksand;
 }
 .product-source {
   background-color: #fff3f3;

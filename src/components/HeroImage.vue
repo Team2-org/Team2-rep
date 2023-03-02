@@ -12,7 +12,7 @@ export default {
   methods: {
     discover() {
       window.scrollTo({
-        top: 731,
+        top: 790,
         behavior: "smooth",
       });
     },
@@ -40,7 +40,7 @@ export default {
       style="position: absolute; z-index: 100"
     >
       Upptäck mer <br />
-      ▼
+      ⇩
     </button>
   </div>
 </template>
