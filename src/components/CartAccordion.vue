@@ -8,13 +8,20 @@
     <div class="cart-container" v-if="isExpanded" :class="{ show: isExpanded }">
       <div class="cart-content">
         <p @click="toggleAccordion" class="cont-shop">
-          <strong> ⏎ </strong>
+          <strong>⏎ </strong>
           Continue shopping
         </p>
       </div>
       <div class="cart-title">{{ title }}</div>
 
-      <div class="items-qty">You have {{}} items in your cart</div>
+      <div class="items-qty">You have no items in your cart</div>
+      <section id="check-wrapper">
+        <div class="shipping">Shipping:</div>
+        <div class="total">Total:</div>
+        <button type="button" class="check-btn" @click="checkOut">
+          Continue to checkout
+        </button>
+      </section>
     </div>
   </div>
 </template>
@@ -24,10 +31,14 @@ export default {
   props: {
     title: String,
     isExpanded: Boolean,
+    /* itemsInCart: Boolean, */
   },
   methods: {
     toggleAccordion() {
       this.$emit("toggle");
+    },
+    checkOut() {
+      // fixa
     },
   },
 };
@@ -35,15 +46,21 @@ export default {
 
 <style scoped>
 .wrapper {
-  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
 
 .cart-container {
   position: absolute;
   display: flex;
+  flex-direction: column;
   right: 0;
-  transform: translateX(100%);
-  transition: transform 0.1s ease-out;
+  transform: translateX(0%);
+  transition: transform 0.5s ease-out;
   transition-delay: 0.2s;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -56,45 +73,46 @@ export default {
 }
 
 .cart-container.show {
-  display: block;
-  justify-content: flex-start;
-  float: right;
-  transform: translateX(33%);
-  transition: transform 0.1s ease-in;
+  display: flex;
+  right: -1rem;
+  transform: translateX(0%);
+  transition: transform 2s ease-in;
   top: 1.125rem;
   opacity: 1;
   height: 80vh;
   width: 30vw;
   padding-left: 1.5rem;
+  margin-right: auto;
 }
 
 .cart-content {
   font-size: 1.5rem;
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   cursor: pointer;
 }
 
 .cont-shop {
   display: flex;
+  justify-content: space-between;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   border-bottom: 1px solid black;
   font-weight: 200;
   padding: 0.5rem;
-
+  padding-right: 8rem;
   width: 80vw;
+  font-size: 1.5rem;
 }
 .cart-title {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: flex-start;
-
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
   justify-content: top;
   padding-top: -5rem;
-  padding-left: 1.5rem;
-  padding-bottom: 1rem;
 }
 
 .items-qty {
@@ -102,9 +120,181 @@ export default {
   font-weight: 100;
 }
 
+.shipping {
+  font-weight: 200;
+  margin-top: 1rem;
+}
+.total {
+  font-weight: 200;
+  margin-top: 0.5rem;
+}
+.check-btn {
+  background-color: rgb(188, 244, 188);
+  margin: 1rem 3rem 1rem 3rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: solid 0.5px;
+}
+
+/* .shipping,
+.total,
+.check-btn {
+
+} */
+
+#check-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border-top: solid 0.5px black;
+}
+
 .bi,
 bi-cart2,
 px-2 {
   display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .cont-shop {
+    font-size: 1.25rem;
+    padding-right: 5rem;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .cont-shop {
+    font-size: 1.25rem;
+    padding-right: 5rem;
+  }
+  .cart-container.show {
+    width: 35vw;
+  }
+  .cart-title {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .cont-shop {
+    font-size: 1.125rem;
+    padding-right: 4rem;
+  }
+  .cart-container.show {
+    width: 40vw;
+  }
+  .cart-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .cont-shop {
+    font-size: 1.125rem;
+    padding-right: 3rem;
+  }
+  .cart-container.show {
+    width: 40vw;
+  }
+  .cart-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .cont-shop {
+    font-size: 1.1rem;
+    padding-right: 3rem;
+  }
+  .cart-container.show {
+    width: 45vw;
+  }
+  .cart-title {
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width: 668px) {
+  .cont-shop {
+    font-size: 1.1rem;
+    padding-right: 2.5rem;
+  }
+  .cart-container.show {
+    width: 50vw;
+  }
+  .cart-title {
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width: 577px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+  .cart-container.show {
+    width: 55vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+  .cart-container.show {
+    width: 60vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+  .cart-container.show {
+    width: 60vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+  .cart-container.show {
+    width: 65vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 1rem;
+  }
+  .cart-container.show {
+    width: 65vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 385px) {
+  .cont-shop {
+    font-size: 1rem;
+    padding-right: 1rem;
+  }
+  .cart-container.show {
+    width: 70vw;
+  }
+  .cart-title {
+    font-size: 1.25rem;
+  }
 }
 </style>
