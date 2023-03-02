@@ -14,7 +14,6 @@
       <div class="wishlist-title">{{ title }}</div>
 
       <div class="wishlist-items-container">
-      
         <!-- <div v-if="item === null"><p>Du har inget i varukorgen.</p></div> -->
         <div class="fetch-card">
           <div class="row" v-if="items !== null">
@@ -155,8 +154,6 @@ export default {
   width: max-content;
 }
 
-  
-
 @media (max-width: 940px) {
   .wishlist-container.show {
     height: 80vh;
@@ -178,6 +175,5 @@ export default {
   .cont-shop {
     width: 80vw;
   }
-
 }
 </style>
