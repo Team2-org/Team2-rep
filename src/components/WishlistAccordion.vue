@@ -14,7 +14,6 @@
       <div class="wishlist-title">{{ title }}</div>
 
       <div class="wishlist-items-container">
-      
         <!-- <div v-if="item === null"><p>Du har inget i varukorgen.</p></div> -->
         <div class="fetch-card">
           <div class="row" v-if="items !== null">
@@ -26,19 +25,31 @@
               </div>
 
               <div class="card-body">
-                <h5
-                  class="card-title"
-                  id="card-title"
-                  style="cursor: pointer"
-                  @click="redirectToProduct"
+                <router-link class="link" :to="{ path: `/products/${item.id}` }"
+                  ><h5
+                    class="card-title"
+                    id="card-title"
+                    style="cursor: pointer"
+                    @click="redirectToProduct"
+                  >
+                    {{ item.name }}
+                  </h5></router-link
                 >
-                  {{ item.name }}
-                </h5>
-
-                <h6 class="card-subtitle mb-2 text-muted">
+                <!-- <h6 class="card-subtitle mb-2 text-muted">
                   {{ item.brand }}
-                </h6>
-                <p class="card-text">{{ item.price }} Sek</p>
+                </h6> -->
+                <p class="card-text">
+                  {{ item.price }} Sek
+                  <span
+                    ><ion-icon
+                      name="trash-outline"
+                      id="trash"
+                      style="cursor: pointer"
+                      @click="removeFromWishlist(item)"
+                    ></ion-icon
+                  ></span>
+                </p>
+                <button @click="addToCart" id="toCartBtn">Add to cart</button>
               </div>
             </div>
           </div>
@@ -70,6 +81,9 @@ export default {
         document.body.classList.remove("wishlist-expanded");
       }
     },
+    // removeFromWishlist() {
+    //   localStorage.removeItem("item");
+    // },
   },
 };
 </script>
@@ -125,24 +139,49 @@ export default {
 }
 .wishlist-items-container {
   font-family: Quicksand;
-  height: 75%;
+  height: 70%;
   background: #fff;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .card {
-  margin: 3%;
-  width: 8rem;
-  height: 10vw;
+  margin: 0;
+  padding: 1vw;
+  padding-top: 1vw;
+  width: 50%;
+  height: 29vh;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  justify-content: center;
 }
 .row {
   justify-content: center;
+  width: 100%;
 }
+.card-body {
+  padding-top: 1.5vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a6f54;
+  font-style: italic;
+}
+
 .img-card img {
-  padding: 10px;
-  height: 100px;
+  /* padding: 10px; */
+  height: 15vh;
   display: block;
-  /* width: 270px; */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 .img-wrapper {
@@ -151,11 +190,58 @@ export default {
 }
 .img-card {
   position: relative;
-
   width: max-content;
+  width: 20vw;
+}
+.card-title {
+  font-size: 0.7em;
+  margin: 0;
+}
+.card-text {
+  font-size: 0.6em;
+  margin: 0;
+}
+#trash {
+  padding-left: 2vw;
+  font-size: 1.1em;
+  position: absolute;
+  bottom: 5.5vh;
+  right: 1.5vw;
+}
+#toCartBtn {
+  background-color: #86b393;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  font-size: 0.6em;
+  position: absolute;
+  bottom: 0;
+  margin-right: 7vw;
+  justify-content: center;
 }
 
-  
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--lightestgrey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #86b393;
+}
 
 @media (max-width: 940px) {
   .wishlist-container.show {
@@ -178,6 +264,5 @@ export default {
   .cont-shop {
     width: 80vw;
   }
-
 }
 </style>
