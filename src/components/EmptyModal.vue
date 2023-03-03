@@ -4,8 +4,8 @@ import SignUp from "./SignUp.vue";
 </script>
 
 <template>
-  <div class="modal-overlay" v-if="isOpen">
-    <div class="modal-container">
+  <div class="modal-overlay" v-if="isOpen" @click="closeModal">
+    <div class="modal-container" @click.stop="">
       <button id="closebtn" @click="closeModal">X</button>
       <div v-show="toggle"><LogIn></LogIn></div>
 
