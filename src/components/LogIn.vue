@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     ToggleType() {
-      this.inputType = this.inputType === "password" ? "text" : "password;";
+      this.inputType = this.inputType === "password" ? "text" : "password";
     },
   },
 };

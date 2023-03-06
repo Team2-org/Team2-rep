@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import CartComponent from "./CartComponent.vue";
+</script>
 
 <template>
   <div class="wrapper">
@@ -15,6 +17,10 @@
       <div class="cart-title">{{ title }}</div>
 
       <div class="items-qty">You have no items in your cart</div>
+      <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
+      <div class="cart-container-items">
+        <CartComponent></CartComponent>
+      </div>
       <section id="check-wrapper">
         <div class="shipping">Shipping:</div>
         <div class="total">Total:</div>
@@ -41,6 +47,12 @@ export default {
       // fixa
     },
   },
+  computed: {
+    items() {
+      return this.$store.getters.cartItems;
+    },
+  },
+  components: { CartComponent },
 };
 </script>
 
@@ -91,7 +103,13 @@ export default {
   /* justify-content: flex-start; */
   cursor: pointer;
 }
-
+.cart-container-items {
+  width: 100%;
+  overflow-y: scroll;
+}
+.items {
+  width: 80%;
+}
 .cont-shop {
   display: flex;
   justify-content: space-between;

@@ -57,10 +57,9 @@ export default {
   },
   methods: {
     async fetchCards() {
-      //   const res = await fetch("../../public/products.json");
-      const res = await fetch("/products.json");
+      const res = await fetch("../../public/products.json");
       const val = await res.json();
-      this.items = val;
+      this.items = val.filter((p) => p.gender === "unisex");
     },
     toggleActive(item) {
       item.isActive = !item.isActive;
