@@ -1,6 +1,8 @@
 <script setup>
 import CompFooter from "./components/CompFooter.vue";
 import NavBar from "./components/NavBar.vue";
+
+
 </script>
 
 <template>
