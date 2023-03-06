@@ -12,6 +12,9 @@
 <script>
 // import productsData from "../../public/products.json";
 export default {
+    created() {
+    this.products = this.$route.query.products;
+  },
   props: {
     products: {
       type: Array,
@@ -23,8 +26,6 @@ export default {
       products: [],
     };
   },
-  created() {
-    this.products = this.$route.query.products;
-  },
+
 };
 </script>

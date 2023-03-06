@@ -126,6 +126,10 @@ export default {
       item: null,
     };
   },
+  //   mounted() {
+  //     window.scrollTo(0, 0);
+  //   },
+
   created() {
     const itemId = this.$route.params.id;
     this.item = items.find((p) => p.id == itemId);
