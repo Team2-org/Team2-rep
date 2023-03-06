@@ -6,8 +6,8 @@
         style="width: 18rem"
         v-for="item in items"
         :key="item.id"
+        :item="item"
       >
-        <button @click="addToWishlist(item)">Add to wishlist</button>
         <div class="img-wrapper">
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
@@ -42,6 +42,7 @@
 </template>
 <script>
 // import items from "../../public/products.json";
+
 export default {
   data() {
     return {
@@ -64,11 +65,10 @@ export default {
     },
     toggleActive(item) {
       item.isActive = !item.isActive;
-    },
-
-    addToWishlist(item) {
-      this.wishlist.push(item);
-      localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+      if (item.isActive) {
+        this.wishlist.push(item);
+        localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+      }
     },
     loadNextPage() {
       window.scrollTo(0, 0);
