@@ -1,5 +1,6 @@
 <script></script>
 <template>
+  <CartComponent></CartComponent>
   <div class="product-source" v-if="item">
     <div id="product-page">
       <img :src="item.image" class="center" alt="glass" />
@@ -10,7 +11,17 @@
         </div>
         <div class="product-icon">
           <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
-          <input type="button" class="card-btn" value="Add to cart" />
+          <input
+            type="button"
+            @click="addToCart()"
+            class="card-btn"
+            value="Add to cart"
+          />
+          <button @click="removeFromCart()">Remove</button>
+        </div>
+        <div class="cart-total">
+          <p>In cart {{ product_total }}</p>
+          <p>{{ item.quantity }}</p>
         </div>
       </div>
       <div class="product-description">
@@ -107,9 +118,10 @@
 
 <script>
 import items from "../../public/products.json";
-
+import CartComponent from "../components/CartComponent.vue";
 export default {
   data() {
+    props: ["item", "active"];
     return {
       item: null,
     };
@@ -118,5 +130,22 @@ export default {
     const itemId = this.$route.params.id;
     this.item = items.find((p) => p.id == itemId);
   },
+  methods: {
+    addToCart() {
+      this.$store.commit("addToCart", this.item);
+    },
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.item);
+    },
+  },
+  computed: {
+    product_total() {
+      return this.$store.getters.productQuantity(this.item);
+    },
+    items() {
+      return this.$store.getters.cartItems;
+    },
+  },
+  components: { CartComponent },
 };
 </script>
