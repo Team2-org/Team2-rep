@@ -59,16 +59,20 @@ import WishlistAccordion from "./WishlistAccordion.vue";
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Category
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Men</a></li> -->
+                <li class="dropdown-item" @click="showMenProducts">Men</li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Women</a></li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Unisex</a>
                 </li>
               </ul>
             </li>
@@ -171,6 +175,8 @@ px-2 {
 </style>
 
 <script>
+import productsData from "../../public/products.json";;
+
 export default {
   data() {
     return {
@@ -191,6 +197,14 @@ export default {
     },
     toggleWishlist() {
       this.isWishlistExpanded = !this.isWishlistExpanded;
+    },
+
+    showMenProducts() {
+      const maleProducts = productsData.filter((p) => p.gender === "male");
+      this.$router.push({
+        path: "/products/men",
+        query: { products: maleProducts },
+      });
     },
   },
 
