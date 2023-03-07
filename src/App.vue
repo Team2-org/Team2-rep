@@ -1,6 +1,8 @@
 <script setup>
 import CompFooter from "./components/CompFooter.vue";
 import NavBar from "./components/NavBar.vue";
+
+
 </script>
 
 <template>
@@ -9,3 +11,11 @@ import NavBar from "./components/NavBar.vue";
 </template>
 
 <style scoped></style>
+
+<script>
+export default {
+  mounted() {
+    this.$store.commit("updateCartFromLocalStorage");
+  },
+};
+</script>

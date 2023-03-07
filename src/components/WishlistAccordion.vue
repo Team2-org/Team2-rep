@@ -66,20 +66,15 @@ export default {
   },
   data() {
     return {
-      isWishlistExpanded: true,
-    };
+      isWishlistExpanded: !this.isWishlistExpanded,
+    }; // Sätter man den som false by default försvinner den.
   },
   created() {
     this.wishlist = JSON.parse(localStorage.getItem("wishlist"));
   },
   methods: {
     toggleWishlist() {
-      this.isWishlistExpanded = !this.isWishlistExpanded;
-      if (this.isWishlistExpanded) {
-        document.body.classList.add("wishlist-expanded");
-      } else {
-        document.body.classList.remove("wishlist-expanded");
-      }
+      this.$emit("toggle");
     },
     // removeFromWishlist() {
     //   localStorage.removeItem("item");
@@ -91,27 +86,25 @@ export default {
 <style scoped>
 .wrapper {
   position: absolute;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .wishlist-container {
-  position: fixed;
-  display: block;
-  right: 0;
-  transform: translateX(100%); /* change to translateX(100%) */
+  position: absolute;
+}
+/*!!!!!!The transition refuses to work. Don't know what to change. */
+.wishlist-container.show {
+  transform: translateX(0%);
+  height: 80vh;
+  width: 30vw;
   background-color: #fff3f3;
   border: 1px solid #ccc;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  transition: transform 0.3s ease-in-out; /* add transition property */
-}
-
-.wishlist-container.show {
-  margin-top: 1rem;
-  display: block;
-  transform: translateX(0); /* change to translateX(0) */
-  height: 80vh;
-  width: 30vw;
+  top: 1.125rem;
+  right: -8.3rem;
 }
 
 .wishlist-content {
@@ -126,6 +119,7 @@ export default {
   justify-content: flex-start;
   border-bottom: 1px solid black;
   font-weight: 200;
+  font-size: medium;
   padding: 0.5rem;
   width: 30vw;
 }
@@ -227,6 +221,9 @@ a:hover {
   height: 10px;
 }
 
+
+@media screen and (max-width: 940px) {
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: var(--lightestgrey);
@@ -243,7 +240,6 @@ a:hover {
   background: #86b393;
 }
 
-@media (max-width: 940px) {
   .wishlist-container.show {
     height: 80vh;
     width: 40vw;
@@ -256,9 +252,18 @@ a:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 530px) {
   .wishlist-container.show {
     width: 80vw;
+    height: 80vh;
+  }
+  .cont-shop {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 358px) {
+  .wishlist-container.show {
+    width: 90vw;
     height: 80vh;
   }
   .cont-shop {

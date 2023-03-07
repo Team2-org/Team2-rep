@@ -6,8 +6,8 @@
         style="width: 18rem"
         v-for="item in items"
         :key="item.id"
+        :item="item"
       >
-        <button @click="addToWishlist(item)">Add to wishlist</button>
         <div class="img-wrapper">
           <div class="img-card">
             <img :src="item.image" class="card-img-top" alt="..." />
@@ -26,7 +26,7 @@
           <router-link
             class="card-heading"
             :to="{ path: `/products/${item.id}` }"
-            ><h5 class="card-title">
+            ><h5 @click="loadNextPage" class="card-title">
               {{ item.name }}
             </h5></router-link
           >
@@ -41,26 +41,37 @@
   </div>
 </template>
 <script>
-import items from "../../public/products.json";
+// import items from "../../public/products.json";
+
 export default {
   data() {
     return {
-      // items,
-      items: items.map((item) => ({ ...item, isActive: false })),
+      items: null,
+      //   items: items.map((item) => ({ ...item, isActive: false })),
 
       active: false,
       wishlist: [],
       item: "",
     };
   },
+  mounted() {
+    this.fetchCards();
+  },
   methods: {
+    async fetchCards() {
+      const res = await fetch("../../public/products.json");
+      const val = await res.json();
+      this.items = val;
+    },
     toggleActive(item) {
       item.isActive = !item.isActive;
+      if (item.isActive) {
+        this.wishlist.push(item);
+        localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+      }
     },
-
-    addToWishlist(item) {
-      this.wishlist.push(item);
-      localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+    loadNextPage() {
+      window.scrollTo(0, 0);
     },
   },
 };
