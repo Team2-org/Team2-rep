@@ -14,18 +14,20 @@
       <div class="infoContainer">
         <div class="footerInfo">
           <h3>{{ Text1 }}</h3>
-          <p>Om oss</p>
-          <p>Kontakta oss</p>
+          <p>About Us</p>
+          <p>Contact Us</p>
+          <p>Social Responsibility</p>
         </div>
         <div class="footerInfo">
           <h3>{{ Text2 }}</h3>
-          <p>Köpvilkor</p>
-          <p>Garantier</p>
+          <p>Privacy Policy</p>
+          <p>Cookies</p>
+
         </div>
         <div class="footerInfo">
           <h3>{{ Text3 }}</h3>
-          <p>Köpvilkor</p>
-          <p>Garantier</p>
+          <p>Guarantees</p>
+          <p>Terms of purchase</p>
         </div>
       </div>
     </div>
@@ -36,9 +38,9 @@
 export default {
   data() {
     return {
-      Text1: "Om XXX",
-      Text2: "Kontakt",
-      Text3: "Kontakt",
+      Text1: "About Spectacular",
+      Text2: "Policy",
+      Text3: "Terms",
     };
   },
 };
@@ -49,6 +51,7 @@ export default {
   display: flex;
   height: 15%;
   background-color: white;
+  padding-top: 20px;
 }
 .leftContainer {
   display: flex;
