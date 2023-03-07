@@ -32,6 +32,17 @@ const router = createRouter({
       path: "/products/men",
       component: () => import("../components/MenGlass.vue"),
     },
+<<<<<<< HEAD
+=======
+    {
+      path: "/products/women",
+      component: () => import("../components/WomenGlass.vue"),
+    },
+    {
+      path: "/products/unisex",
+      component: () => import("../components/UnisexGlass.vue"),
+    },
+>>>>>>> 8ec1de1162abd06286f2446c0f1e12a7966444ef
   ],
 });
 
