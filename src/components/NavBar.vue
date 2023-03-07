@@ -62,18 +62,31 @@ import WishlistAccordion from "./WishlistAccordion.vue";
                 Category
               </a>
               <ul class="dropdown-menu">
-                <!-- <li><a class="dropdown-item" href="#">Men</a></li> -->
-                <li class="dropdown-item" @click="showMenProducts">Men</li>
+                <router-link
+                  class="gender-dropdown"
+                  :to="{ path: `/products/men` }"
+                  ><li class="dropdown-item">Men</li></router-link
+                >
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="#">Women</a></li>
+                <router-link
+                  class="gender-dropdown"
+                  :to="{ path: `/products/women` }"
+                  ><li class="dropdown-item">Women</li></router-link
+                >
+
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
-                <li>
+                <router-link
+                  class="gender-dropdown"
+                  :to="{ path: `/products/unisex` }"
+                  ><li class="dropdown-item">Unisex</li></router-link
+                >
+                <!-- <li>
                   <a class="dropdown-item" href="#">Unisex</a>
-                </li>
+                </li> -->
               </ul>
             </li>
           </ul>
@@ -172,11 +185,12 @@ px-2 {
 .dropdown-menu {
   background-color: #fff3f3;
 }
+.gender-dropdown {
+  text-decoration: none;
+}
 </style>
 
 <script>
-import productsData from "../../public/products.json";;
-
 export default {
   data() {
     return {
@@ -197,14 +211,6 @@ export default {
     },
     toggleWishlist() {
       this.isWishlistExpanded = !this.isWishlistExpanded;
-    },
-
-    showMenProducts() {
-      const maleProducts = productsData.filter((p) => p.gender === "male");
-      this.$router.push({
-        path: "/products/men",
-        query: { products: maleProducts },
-      });
     },
   },
 
