@@ -64,7 +64,7 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff3f3;
   width: 90%;
   height: 100%;
   padding-top: 1vw;
@@ -74,8 +74,11 @@ export default {
 .modal-header {
   display: flex;
   justify-content: center;
-  border-bottom: solid 0.5px;
-  border-color: rgba(124, 124, 124, 1);
+  border-bottom: solid black 1px;
+  margin: 0 10px;
+}
+.modal-body {
+  height: 100%;
 }
 .modal-enter-active {
   transition: transform 0.2s;
@@ -87,5 +90,25 @@ export default {
 .modal-enter-from,
 .modal-leave-to {
   transform: translateX(100%);
+}
+
+@media screen and (min-width: 600px) {
+  #modal-wrapper {
+    width: 70%;
+  }
+
+  .modal-header {
+    margin: 0 20px;
+  }
+}
+@media screen and (min-width: 900px) {
+  #modal-wrapper {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #modal-wrapper {
+    width: 40%;
+  }
 }
 </style>
