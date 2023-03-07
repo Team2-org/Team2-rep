@@ -35,7 +35,7 @@ import ModalRight from "./ModalRight.vue";
                 :id="name.description"
                 class="checkbox"
                 :value="name.description"
-                v-model="allFilter"
+                v-model="allFilters"
               />
               <label :for="name.description" class="label">
                 {{ name.description }}
@@ -44,7 +44,23 @@ import ModalRight from "./ModalRight.vue";
           </div>
         </fieldset>
       </div>
-      {{ allFilter }}
+      <div class="selected-wrapper" v-if="allFilters != null">
+        <div
+          class="selected-filters"
+          v-for="(allFilter, index) in allFilters"
+          :key="allFilter.id"
+        >
+          <div class="selected">
+            {{ allFilter }}
+            <ion-icon
+              name="close-outline"
+              id="remove-selected"
+              @click="removeSelected(index)"
+            ></ion-icon>
+          </div>
+        </div>
+      </div>
+
       <div class="button">
         <div class="button-wrapper">
           <input
@@ -52,8 +68,8 @@ import ModalRight from "./ModalRight.vue";
             id="delete-button"
             class="filter-button"
             value="Reset filter"
-            @click="clear"
             aria-label="Reset modal"
+            @click="clear"
           />
         </div>
         <div class="button-wrapper">
@@ -76,7 +92,7 @@ export default {
   data() {
     return {
       isFilterVisible: false,
-      allFilter: [],
+      allFilters: [],
       filterObjects: {
         categories: [
           {
@@ -123,13 +139,16 @@ export default {
   },
   methods: {
     clear() {
-      this.allFilter = [];
+      this.allFilters = [];
     },
     openFilter() {
       this.isFilterVisible = true;
     },
     closeFilter() {
       this.isFilterVisible = false;
+    },
+    removeSelected(index) {
+      return this.allFilters.splice(index, 1);
     },
   },
   components: {
@@ -211,22 +230,44 @@ input[type="checkbox"]:checked {
 .input-wrapper::-webkit-scrollbar {
   display: none;
 }
-.button-wrapper {
-  position: absolute;
-  bottom: 10rem;
+.selected-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10vw;
+  margin-left: 5vw;
+}
+.selected {
+  display: flex;
+  border: solid 0.5px;
+  border-radius: 5px;
+  border-color: rgba(124, 124, 124, 1);
+  background-color: rgb(230, 185, 192);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
+  padding: 1vw;
+  font-family: "Quicksand", sans-serif;
+}
+#remove-selected {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 .button {
   display: flex;
   justify-content: center;
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
+  margin-top: 1rem;
 }
-
+.button-wrapper {
+  position: relative;
+  bottom: 0;
+}
 #delete-button {
-  width: 10rem;
+  width: 9rem;
   height: 3rem;
   margin: 1vw;
-  margin-right: 44vw;
   background-color: rgba(134, 179, 147, 0.57);
   border-radius: 5px;
   border: none;
@@ -234,10 +275,9 @@ input[type="checkbox"]:checked {
 }
 
 #show-button {
-  width: 10rem;
+  width: 9rem;
   height: 3rem;
   margin: 1vw;
-  margin-left: 44vw;
   background-color: rgba(134, 179, 147, 0.57);
   border-radius: 5px;
   border: none;
@@ -277,16 +317,13 @@ input[type="checkbox"]:checked {
     font-size: 1.4rem;
   }
   .button-wrapper {
-    bottom: 10rem;
   }
   #delete-button {
     width: 15rem;
-    margin-right: 34vw;
   }
 
   #show-button {
     width: 15rem;
-    margin-left: 34vw;
   }
 }
 @media screen and (min-width: 900px) {
@@ -316,7 +353,7 @@ input[type="checkbox"]:checked {
     display: flex;
     flex-wrap: wrap;
     padding: 0.6vh 0;
-}
+  }
   .label {
     font-size: 1rem;
     margin-left: 0.5vh;
