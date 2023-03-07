@@ -1,14 +1,17 @@
 <template>
   <div class="aboutGlasses">
-    <h2 class="headLine">OM SPECTACULAR GROUP</h2>
-    <div class="line-1"></div>
+    <div class="lineContainer">
+      <div class="line">
+        <h2 class="headLine">OM SPECTACULAR GROUP</h2>
+      </div>
+    </div>
     <h5 class="glassesContainer">
       Spectacular Group är en av Europas ledande aktör inom optikbranschen<br />
       och erbjuder unika lösningar inom både Eye Health och Eye Fashion<br />
       med ett brett sortiment som utgår ifrån kundens olika livsstilar.
     </h5>
-    <div>
-      <h5 class="imgText" style="position: absolute; z-index: 100">
+    <div class="text">
+      <h5 class="imgText">
         Spectacular Group är en av Europas ledande aktör inom optikbranschen och
         erbjuder unika lösningar inom både Eye Health och Eye Fashion med ett
         brett sortiment som utgår ifrån kundens olika livsstilar och behov av
@@ -30,44 +33,56 @@
         Synundersökningen bokar du här på spectacular.se.
       </h5>
     </div>
-    <div>
-      <!-- Glasses picture in AboutView -->
-      <img src="../assets/img/Glasses.jpeg" class="glassesImg" alt="Glasses" />
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script></script>
 
 <style scoped>
-.glassesImg {
-  display: flex;
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-  padding-top: 1%;
-  filter: brightness(50%);
-}
-
 .aboutGlasses {
   background-color: #fff3f3;
 }
 .headLine {
-  padding-left: 36%;
   padding-top: 1%;
-}
-.line-1 {
-  border-bottom: 2px solid black;
-  width: 500px;
-  margin-left: 32%;
 }
 .glassesContainer {
-  padding-left: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 1%;
+  padding-bottom: 1%;
 }
-
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Glasses picture in AboutView */
+  background-image: url("../assets/img/Glasses.jpeg");
+  background-size: cover;
+  min-height: 100vh;
+  padding: 0 20%;
+}
 .imgText {
-  margin: 20%;
-  color: white;
+  color: black;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+  width: 50%;
+}
+.lineContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
