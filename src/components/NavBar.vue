@@ -191,11 +191,6 @@ px-2 {
 </style>
 
 <script>
-<<<<<<< HEAD
-import productsData from "../../public/products.json";
-
-=======
->>>>>>> 8ec1de1162abd06286f2446c0f1e12a7966444ef
 export default {
   data() {
     return {

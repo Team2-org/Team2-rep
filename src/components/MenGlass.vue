@@ -42,18 +42,6 @@
 </template>
 <script>
 export default {
-<<<<<<< HEAD
-  created() {
-    this.products = this.$route.query.products;
-  },
-  props: {
-    products: {
-      type: Array,
-      required: true,
-    },
-  },
-=======
->>>>>>> 8ec1de1162abd06286f2446c0f1e12a7966444ef
   data() {
     return {
       items: null,
@@ -64,8 +52,6 @@ export default {
       item: "",
     };
   },
-<<<<<<< HEAD
-=======
   mounted() {
     this.fetchCards();
   },
@@ -86,7 +72,6 @@ export default {
       window.scrollTo(0, 0);
     },
   },
->>>>>>> 8ec1de1162abd06286f2446c0f1e12a7966444ef
 };
 </script>
 <style scoped>
