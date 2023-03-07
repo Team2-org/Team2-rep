@@ -24,14 +24,14 @@ const router = createRouter({
       component: () => import("../components/ProductPage.vue"),
     },
     {
-        path:"/checkout",
-        name:"checkout",
-        component: () => import ("../views/CheckoutView.vue")
+      path: "/checkout",
+      name: "checkout",
+      component: () => import("../views/CheckoutView.vue"),
     },
     {
       path: "/products/men",
       component: () => import("../components/MenGlass.vue"),
-    }
+    },
   ],
 });
 

@@ -9,25 +9,25 @@
     </h5>
     <div>
       <h5 class="imgText" style="position: absolute; z-index: 100">
-        Om Spectacular Group<br />Spectacular Group är en av Europas ledande
-        aktör inom optikbranschen och erbjuder unika lösningar inom både Eye
-        Health och Eye Fashion med ett brett sortiment som utgår ifrån kundens
-        olika livsstilar och behov av ögonhälsa. Koncernen finns i Norden, har
-        cirka 3000 medarbetare och en total omsättning på cirka 4 miljarder SEK.
-        Totalt har koncernen cirka 500 butiker som drivs under varumärkena
-        Spectacular, Ai Eyewear samt Profil Optik i Danmark. Spectacular Group
-        har genom digitalisering, abonnemangserbjudanden och andra innovativa
-        koncept drivit en tillväxt och lönsamhetsutveckling som är bland de
-        högsta i Europa. Våra kunder är alltid i fokus och vi har ett tydligt
-        integrerat hållbarhetsperspektiv genom hela vår värdekedja. Spectacular
-        korades till Sveriges mest hållbara optiker i Sustainable Brand Index
-        2022 Vi på Spectacular tar oss tid för dig, vi ser dig och vill göra vad
-        vi kan för att du ska hitta rätt glasögon och linser – för alla dina
-        behov. Med legitimerade optiker som ser till hela din ögonhälsa,
-        individanpassade kvalitetsglas, brett sortiment och vårt smarta
-        Lifestyle-abonnemang som gör det enklare än någonsin att ha glasögon och
-        linser. Välkommen in och prova allt från de senaste trenderna, till
-        glasögonen för din sport. Synundersökningen bokar du här på synsam.se
+        Spectacular Group är en av Europas ledande aktör inom optikbranschen och
+        erbjuder unika lösningar inom både Eye Health och Eye Fashion med ett
+        brett sortiment som utgår ifrån kundens olika livsstilar och behov av
+        ögonhälsa. Koncernen finns i Norden, har cirka 3000 medarbetare och en
+        total omsättning på cirka 4 miljarder SEK. Totalt har koncernen cirka
+        500 butiker som drivs under varumärkena Spectacular, Ai Eyewear samt
+        Profil Optik i Danmark. Spectacular Group har genom digitalisering,
+        abonnemangserbjudanden och andra innovativa koncept drivit en tillväxt
+        och lönsamhetsutveckling som är bland de högsta i Europa. Våra kunder är
+        alltid i fokus och vi har ett tydligt integrerat hållbarhetsperspektiv
+        genom hela vår värdekedja. Spectacular korades till Sveriges mest
+        hållbara optiker i Sustainable Brand Index 2022.<br /><br />Vi på
+        Spectacular tar oss tid för dig, vi ser dig och vill göra vad vi kan för
+        att du ska hitta rätt glasögon och linser – för alla dina behov. Med
+        legitimerade optiker som ser till hela din ögonhälsa, individanpassade
+        kvalitetsglas, brett sortiment och vårt smarta Lifestyle-abonnemang som
+        gör det enklare än någonsin att ha glasögon och linser. Välkommen in och
+        prova allt från de senaste trenderna, till glasögonen för din sport.
+        Synundersökningen bokar du här på spectacular.se.
       </h5>
     </div>
     <div>
@@ -42,13 +42,15 @@
 <style scoped>
 .glassesImg {
   display: flex;
+  object-fit: contain;
   height: 100%;
   width: 100%;
   padding-top: 1%;
+  filter: brightness(50%);
 }
 
 .aboutGlasses {
-  background-color: rgb(245, 245, 245);
+  background-color: #fff3f3;
 }
 .headLine {
   padding-left: 36%;
@@ -65,6 +67,7 @@
 }
 
 .imgText {
-  margin: 25%;
+  margin: 20%;
+  color: white;
 }
 </style>

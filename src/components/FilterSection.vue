@@ -161,14 +161,12 @@ export default {
   padding-bottom: 2vw;
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
-
 }
 
 #filter-h3 {
   display: flex;
   margin-left: 100%;
   margin-right: 100%;
-
 }
 .filter-p {
   margin-left: 2vw;

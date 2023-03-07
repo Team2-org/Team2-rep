@@ -175,7 +175,7 @@ px-2 {
 </style>
 
 <script>
-import productsData from "../../public/products.json";;
+import productsData from "../../public/products.json";
 
 export default {
   data() {
