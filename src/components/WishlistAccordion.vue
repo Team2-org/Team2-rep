@@ -221,24 +221,22 @@ a:hover {
   height: 10px;
 }
 
-
 @media screen and (max-width: 940px) {
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--lightestgrey);
+  }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--lightestgrey);
-}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c2c2c2;
+    border-radius: 5px;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #c2c2c2;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #86b393;
-}
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #86b393;
+  }
 
   .wishlist-container.show {
     height: 80vh;
