@@ -6,7 +6,7 @@
       </div>
     </div>
     <h5 class="glassesContainer">
-      Spectacular Group är en av Europas ledande aktör inom optikbranschen<br />
+      Spectacular Group är en av Europas ledande aktör i optikbranschen<br />
       och erbjuder unika lösningar inom både Eye Health och Eye Fashion<br />
       med ett brett sortiment som utgår ifrån kundens olika livsstilar.
     </h5>
