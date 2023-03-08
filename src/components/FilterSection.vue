@@ -182,9 +182,11 @@ export default {
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
 }
+
 #filter-h2 {
   font-size: 1.7rem;
   font-weight: 200;
+  
 }
 .filter-p {
   margin-left: 2vw;
