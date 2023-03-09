@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+
     <div id="delivery-method">2. Delivery method</div>
     <div class="delivery-login-container">
       <span id="account">Already have an account?</span>
@@ -52,17 +53,18 @@
     <div class="delivery-options">
       <div class="radio-wrapper">
         <label for="radioA" class="radio"
-          ><input type="radio" name="radio1" value="Free" /> Free<span
+          ><input type="radio" name="radio" value="Free" /> Free<span
             class="radio-text"
             >1 - 3 days delivery to your closest pick-up point</span
           ></label
         ><br />
         <label for="radioB" class="radio"
-          ><input type="radio" name="radio1" value="B" /> 79sek
+          ><input type="radio" name="radio" value="B" /> 49 sek
           <span class="radio-text">Next day home delivery</span></label
         ><br />
       </div>
     </div>
+
     <div id="shipping-address">3. Shipping address</div>
     <div class="shipping-container">
       <form class="shipping-form">
@@ -96,8 +98,69 @@
         </div>
       </form>
     </div>
+
     <div id="payment-method">4. Payment method</div>
-    <div class="payment-container"></div>
+    <div class="payment-container">
+      <div class="radio2-wrapper">
+        <label for="radio1" class="radio2"
+          ><input type="radio" name="radio2" value="1" /> Pay with Credit card
+          <form class="creditcard-form">
+            <div class="col-501">
+              <label for="cardnumber"> Card number</label>
+              <input
+                type="text"
+                id="cardnumber"
+                name="cardnumber"
+                placeholder="123 456 789 123"
+              />
+              <label for="cardname"> Name on card</label>
+              <input
+                type="text"
+                id="cardname"
+                name="cardnme"
+                placeholder="John Doe"
+              />
+              <label for="expDate"> Expiration date</label>
+              <input
+                type="text"
+                id="expDate"
+                name="expDate"
+                placeholder="01/24"
+              />
+              <!--Script makes sure the security number can only be 3 digits long-->
+              <label for="securityNr">Security number</label>
+              <input
+                v-model="securityAmount"
+                type="number"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="3"
+                id="securityNr"
+                name="securityNr"
+                placeholder="000"
+              />
+            </div>
+          </form> </label
+        ><br />
+
+        <label for="radio2" class="radio2"
+          ><input type="radio" name="radio2" value="2" /> PayPal
+          <span class="radio-text"
+            >You will be directed to the PayPal website after submitting your
+            order</span
+          ></label
+        ><br />
+      </div>
+    </div>
+
+    <div class="total-container">
+      <p id="totalcost">Total: {{ total }}</p>
+      <!--INSERT TOTAL COST HERE-->
+      <input
+        type="button"
+        class="continue-button"
+        value="Continue to payment"
+      />
+    </div>
   </div>
 </template>
 
@@ -140,27 +203,26 @@ export default {
   transition: ease all 0.2s;
   padding: 1rem 3vw 0;
   font-weight: 600;
+  font-size: 1.3rem;
 }
 .your-cart-container,
 .shipping-container,
-.payment-container {
+.payment-container,
+.total-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90vw;
   height: 90vh;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   background-color: white;
 }
 .delivery-login-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 90vw;
   height: 20vh;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   background-color: white;
 }
 .delivery-options {
@@ -171,14 +233,17 @@ export default {
   height: 30vh;
   margin: 0 auto;
   margin-top: -2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   background-color: white;
 }
-.delivery-login-container {
+.delivery-login-container,
+.total-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem 0 1rem;
+  border-bottom: 2rem solid #fff3f3;
 }
 #account,
 #account-text {
@@ -187,7 +252,8 @@ export default {
 #account {
   font-weight: 600;
 }
-#account-text {
+#account-text,
+.save-checkbox {
   font-size: small;
 }
 .signin-button {
@@ -213,7 +279,9 @@ export default {
   display: flex;
   font-size: small;
 }
-.radio {
+.radio,
+.radio1,
+.radio2 {
   border: 1px solid #ebebeb;
   border-radius: 5px;
   padding: 1rem;
@@ -221,7 +289,8 @@ export default {
   margin-bottom: 5px;
 }
 
-.shipping-container {
+.shipping-container,
+.payment-container {
   height: auto;
   padding: 1rem;
 }
@@ -233,14 +302,36 @@ export default {
 input::placeholder {
   color: rgb(162, 158, 158);
 }
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 100%;
   height: 2.5rem;
   border: 1px solid rgb(230, 227, 227);
+  appearance: none;
+  -moz-appearance: textfield; /*Removes arrows on number field */
 }
-
-.save-checkbox {
+.col-501 {
   font-size: small;
+  padding-left: 1rem;
+}
+.total-container {
+  height: 20vh;
+  padding-bottom: 10px;
+}
+#totalcost {
+  font-weight: 600;
+}
+.continue-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  height: 3rem;
+  background: rgba(134, 179, 147, 0.57);
+  border-radius: 5px;
+  border: none;
 }
 @media screen and (max-width: 430px) {
   #bar-title {
