@@ -1,13 +1,15 @@
+<script setup>
+import CompAbout from "../components/CompAbout.vue";
+</script>
 <template>
-  <h1>hello world!</h1>
+  <CompAbout />
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-
-    align-items: center;
-  }
-}
-</style>
+<style></style>
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+};
+</script>

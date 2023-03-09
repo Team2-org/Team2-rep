@@ -26,14 +26,14 @@ export default {
   //     };
 
   props: ["item"],
-    methods: {
-      addToCart() {
-        this.$store.commit("addToCart", this.item);
-      },
-      removeFromCart() {
-        this.$store.commit("removeFromCart", this.item);
-      },
+  methods: {
+    addToCart() {
+      this.$store.commit("addToCart", this.item);
     },
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.item);
+    },
+  },
   computed: {
     // items() {
     //   return this.$store.getters.cartItems;

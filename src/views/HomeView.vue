@@ -10,6 +10,12 @@ import FilterSection from "../components/FilterSection.vue";
   <FilterSection />
   <TheCard />
 </template>
-<script></script>
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+};
+</script>
 
 <style scoped></style>

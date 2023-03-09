@@ -7,7 +7,6 @@ import store from "./store";
 
 import "./assets/base.css";
 
-
 // Import bootstrap for css and js
 import "bootstrap/dist/css/bootstrap.css";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";

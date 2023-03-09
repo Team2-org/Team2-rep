@@ -11,7 +11,7 @@ import ModalRight from "./ModalRight.vue";
   <ModalRight v-show="isFilterVisible" @close="closeFilter">
     <template v-slot:header>
       <div class="filter-header">
-        <h3 id="filter-h3">Filter</h3>
+        <h2 id="filter-h2">Filter</h2>
       </div>
     </template>
 
@@ -35,7 +35,7 @@ import ModalRight from "./ModalRight.vue";
                 :id="name.description"
                 class="checkbox"
                 :value="name.description"
-                v-model="allFilter"
+                v-model="allFilters"
               />
               <label :for="name.description" class="label">
                 {{ name.description }}
@@ -44,7 +44,23 @@ import ModalRight from "./ModalRight.vue";
           </div>
         </fieldset>
       </div>
-      {{ allFilter }}
+      <div class="selected-wrapper" v-if="allFilters != null">
+        <div
+          class="selected-filters"
+          v-for="(allFilter, index) in allFilters"
+          :key="allFilter.id"
+        >
+          <div class="selected">
+            {{ allFilter }}
+            <ion-icon
+              name="close-outline"
+              id="remove-selected"
+              @click="removeSelected(index)"
+            ></ion-icon>
+          </div>
+        </div>
+      </div>
+
       <div class="button">
         <div class="button-wrapper">
           <input
@@ -52,8 +68,8 @@ import ModalRight from "./ModalRight.vue";
             id="delete-button"
             class="filter-button"
             value="Reset filter"
-            @click="clear"
             aria-label="Reset modal"
+            @click="clear"
           />
         </div>
         <div class="button-wrapper">
@@ -61,7 +77,7 @@ import ModalRight from "./ModalRight.vue";
             type="button"
             id="show-button"
             class="filter-button"
-            value="Show"
+            value="Apply"
             @click="closeFilter"
             aria-label="Close modal"
           />
@@ -76,7 +92,7 @@ export default {
   data() {
     return {
       isFilterVisible: false,
-      allFilter: [],
+      allFilters: [],
       filterObjects: {
         categories: [
           {
@@ -123,13 +139,16 @@ export default {
   },
   methods: {
     clear() {
-      this.allFilter = [];
+      this.allFilters = [];
     },
     openFilter() {
       this.isFilterVisible = true;
     },
     closeFilter() {
       this.isFilterVisible = false;
+    },
+    removeSelected(index) {
+      return this.allFilters.splice(index, 1);
     },
   },
   components: {
@@ -148,8 +167,9 @@ export default {
 }
 .category-wrapper {
   border-bottom: solid 0.1px;
-  border-color: rgba(124, 124, 124, 1);
+  border-color: rgb(0, 0, 0);
   padding-bottom: 3vw;
+  margin: 0 10px;
 }
 
 .filter-header {
@@ -161,14 +181,10 @@ export default {
   padding-bottom: 2vw;
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
-
 }
-
-#filter-h3 {
-  display: flex;
-  margin-left: 100%;
-  margin-right: 100%;
-
+#filter-h2 {
+  font-size: 1.7rem;
+  font-weight: 200;
 }
 .filter-p {
   margin-left: 2vw;
@@ -176,6 +192,7 @@ export default {
   margin-bottom: 0;
   font-family: "Quicksand", sans-serif;
   font-size: 1.5rem;
+  font-weight: 200;
 }
 
 fieldset {
@@ -213,31 +230,171 @@ input[type="checkbox"]:checked {
 .input-wrapper::-webkit-scrollbar {
   display: none;
 }
+.selected-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10vw;
+  margin-left: 5vw;
+}
+.selected {
+  display: flex;
+  border: solid 0.5px;
+  border-radius: 5px;
+  border-color: rgba(124, 124, 124, 1);
+  background-color: rgb(230, 185, 192);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
+  padding: 1vw;
+  font-family: "Quicksand", sans-serif;
+}
+#remove-selected {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
 .button {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
-  margin-top: 0vw;
+  margin-top: 1rem;
 }
-
+.button-wrapper {
+  position: relative;
+  bottom: 0;
+}
 #delete-button {
-  width: 10rem;
+  width: 9rem;
   height: 3rem;
   margin: 1vw;
-  background: rgba(134, 179, 147, 0.57);
+  background-color: rgba(134, 179, 147, 0.57);
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
 #show-button {
-  width: 10rem;
+  width: 9rem;
   height: 3rem;
   margin: 1vw;
-  background: rgba(134, 179, 147, 0.57);
+  background-color: rgba(134, 179, 147, 0.57);
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .category-wrapper {
+    margin: 0 20px;
+    padding: 1vh 0;
+  }
+  .filter-header {
+    margin-top: 4vh;
+    padding-bottom: 0;
+  }
+  #filter-h2 {
+    font-size: 2.5rem;
+  }
+  .filter-p {
+    font-size: 1.8rem;
+  }
+  .checkbox-wrapper {
+    margin-left: 1.8vw;
+  }
+  .label {
+    font-size: 1.2rem;
+    margin-left: 1vw;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    width: 1.8vw;
+    height: 1.8vw;
+  }
+  .button {
+    margin-top: 8rem;
+    font-size: 1.4rem;
+  }
+  .button-wrapper {
+  }
+  #delete-button {
+    width: 15rem;
+  }
+
+  #show-button {
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .category-wrapper {
+    margin: 0 20px;
+  }
+  .filter-header {
+    margin-top: 1vh;
+    padding-bottom: 0;
+  }
+  #filter-h2 {
+    font-size: 2.5rem;
+  }
+  fieldset {
+    padding-top: 0;
+  }
+  .filter-p {
+    font-size: 1.3rem;
+    margin-top: 0.5vh;
+  }
+  .checkbox-wrapper {
+    margin-left: 1.3vh;
+    margin-bottom: 1vh;
+    padding: 0.8vh;
+  }
+  .input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.6vh 0;
+  }
+  .label {
+    font-size: 1rem;
+    margin-left: 0.5vh;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  .button {
+    margin-top: 8rem;
+    font-size: 1.2rem;
+  }
+  .button-wrapper {
+    position: absolute;
+    bottom: 5rem;
+  }
+  #delete-button {
+    width: 10rem;
+    height: 7vh;
+    margin-right: 30vh;
+  }
+
+  #show-button {
+    width: 10rem;
+    height: 7vh;
+    margin-left: 30vh;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #delete-button {
+    width: 12rem;
+    height: 7vh;
+    margin-right: 30vh;
+  }
+
+  #show-button {
+    width: 12rem;
+    height: 7vh;
+    margin-left: 30vh;
+  }
 }
 </style>

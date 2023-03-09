@@ -71,6 +71,7 @@ export default {
 .footer-list {
   list-style: none;
 }
+
 .icon {
   font-size: 1.9rem;
   display: flex;
