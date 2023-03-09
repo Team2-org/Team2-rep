@@ -137,10 +137,10 @@ export default {
   },
   methods: {
     ToggleTypeA() {
-      this.inputTypeA = this.inputTypeA === "password" ? "text" : "password;";
+      this.inputTypeA = this.inputTypeA === "password" ? "text" : "password";
     },
     ToggleTypeB() {
-      this.inputTypeB = this.inputTypeB === "password" ? "text" : "password;";
+      this.inputTypeB = this.inputTypeB === "password" ? "text" : "password";
     },
   },
 };
