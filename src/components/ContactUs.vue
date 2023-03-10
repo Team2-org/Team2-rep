@@ -1,21 +1,34 @@
 <template>
   <div class="contact">
     <div class="contact-heading">
-      <h2>Contact Us</h2>
-      <p>
-        We answer your questions and help with orders. Do not hesitate to call
-        us if you have any questions. We are happy to help!
-      </p>
+      <h2 class="contact-head text-center">Contact Us</h2>
+      <p>Do not hesitate to call us if you have any questions.</p>
+      <p>We answer your questions and help with orders.</p>
+      <p>We are happy to help!</p>
     </div>
 
     <img src="../../public/img/pexels-yan-krukau-8867482.jpg" alt="" />
   </div>
   <div class="contact-details">
-    <div class="contact-section text-center">
+    <div class="contact-section">
       <h4>How to get in touch</h4>
-      <a class="tel-no" href="tel:08 444 555 66">Tel: 08 444 555 66</a><br>
-      <a style="cursor: pointer" @click="sendEmail()">
-        E-mail: Spectacular.glassögonr@gmail.com
+      <a class="tel-no" href="tel:08 444 555 66"
+        ><strong><i class="bi bi-phone"></i>: +46 123456789</strong></a
+      >
+      <p style="font-weight: bold">Opening hours:</p>
+      <table class="table">
+        <tr>
+          <td>Mon-Fri:</td>
+          <td>08.00-16.00</td>
+        </tr>
+        <tr>
+          <td>Lunch</td>
+          <td>12.00-13.00</td>
+        </tr>
+      </table>
+      <a style="cursor: pointer" @click="sendEmail()"
+        ><i class="bi bi-envelope"></i>
+        Spectacular.glassögonr@gmail.com
       </a>
     </div>
     <div class="accordion" id="accordionExample">
@@ -34,7 +47,7 @@
         </h2>
         <div
           id="collapseOne"
-          class="accordion-collapse collapse "
+          class="accordion-collapse collapse"
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample"
         >
@@ -107,6 +120,9 @@
 </template>
 <script>
 export default {
+  mounted() {
+    window.scrollTo(0, 0);
+  },
   data() {
     return {};
   },
@@ -123,6 +139,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff3f3;
+  padding-bottom: 20px;
 }
 
 img {
@@ -135,9 +153,14 @@ img {
 .contact-heading {
   flex: 1;
   height: 100%;
-  margin-left: 10%;
-  margin-right: 10%;
+  padding-left: 10px;
+  padding-right: 20px;
   font-weight: bold;
+}
+contact-heading,
+p {
+  text-align: center;
+  margin-bottom: 0px;
 }
 .tel-no {
   text-decoration: none;
@@ -145,18 +168,30 @@ img {
 }
 .contact-details {
   display: flex;
-  padding-top: 20px;
-  justify-content: center;
-  align-items: center;
+  padding-top: 40px;
+  margin-bottom: 30px;
 
+  padding-bottom: 40px;
+  background-color: #fff3f3;
 }
 .accordion {
   flex: 1;
+  padding-right: 33px;
 }
 .contact-section {
   flex: 1;
+  padding-bottom: 20px;
+  padding-left: 33px;
 }
 
+.contact-head {
+  padding-bottom: 10px;
+}
+.accordion-button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
 @media only screen and (max-width: 430px) {
   .contact {
     flex-direction: column;
@@ -169,10 +204,34 @@ img {
 }
 
 @media only screen and (max-width: 400px) {
-    .contact-details{
-        flex-direction: column;
-    }
+  .contact-details {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-
+@media only screen and (max-width: 400px) {
+  .contact-section {
+    padding-right: 40px;
+  }
+  .accordion {
+    padding-left: 30px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .contact-section {
+    padding-right: 40px;
+  }
+  .accordion {
+    padding-left: 30px;
+  }
+}
 </style>
