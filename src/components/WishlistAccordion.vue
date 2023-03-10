@@ -68,6 +68,12 @@ export default {
       isWishlistExpanded: !this.isWishlistExpanded,
     }; // Sätter man den som false by default försvinner den.
   },
+
+  //Page shows from the top
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+
   created() {
     this.wishlist = JSON.parse(localStorage.getItem("wishlist"));
   },
