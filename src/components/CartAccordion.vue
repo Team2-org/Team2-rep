@@ -53,7 +53,7 @@ export default {
       this.$emit("toggle");
     },
     checkOut() {
-      // fixa
+        this.$router.push({ name: "checkout" });
     },
   },
   computed: {
