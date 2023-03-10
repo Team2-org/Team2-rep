@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import EmptyModal from "./EmptyModal.vue";
 import CartAccordion from "./CartAccordion.vue";
 import WishlistAccordion from "./WishlistAccordion.vue";
+import CompWelcome from "./CompWelcome.vue";
 </script>
 <template>
   <nav
@@ -112,7 +113,7 @@ import WishlistAccordion from "./WishlistAccordion.vue";
       >
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
-
+      <CompWelcome />
       <div class="nav-icon">
         <button
           class="bi bi-person px-2"
