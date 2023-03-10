@@ -1,4 +1,9 @@
 <template>
+  <div
+    class="modal-overlay"
+    v-if="isWishlistExpanded"
+    @click="toggleWishlist"
+  ></div>
   <div class="wrapper">
     <div
       class="wishlist-container"
@@ -84,6 +89,10 @@ export default {
 </script>
 
 <style scoped>
+.modal-overlay {
+  background-color: transparent;
+  z-index: 10;
+}
 .wrapper {
   position: absolute;
   transform: translateX(100%);
@@ -98,8 +107,9 @@ export default {
   transform: translateX(0%);
   height: 80vh;
   width: 30vw;
-  background-color: #fff3f3;
+  background-color: white;
   border: 1px solid #ccc;
+  border-top: transparent;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;

@@ -3,6 +3,7 @@ import CartComponent from "./CartComponent.vue";
 </script>
 
 <template>
+  <div class="modal-overlay" v-if="isExpanded" @click="toggleAccordion"></div>
   <div class="wrapper">
     <div>
       <i class="bi bi-cart2 px-2" @click="toggleAccordion"></i>
@@ -14,12 +15,12 @@ import CartComponent from "./CartComponent.vue";
           Continue shopping
         </p>
       </div>
-      <div class="cart-title">{{ title }}</div>
+      <!-- <div class="cart-title">{{ title }}</div> -->
 
-      <div class="items-qty">You have no items in your cart</div>
-      <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
+      <!-- <div class="items-qty"></div>
+      <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
       <div class="cart-container-items">
-        <CartComponent></CartComponent>
+        <CartComponent>Cart</CartComponent>
       </div>
       <section id="check-wrapper">
         <div class="shipping">Shipping:</div>
@@ -57,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+.modal-overlay {
+  background-color: transparent;
+  z-index: 10;
+}
 .wrapper {
   display: flex;
   justify-content: flex-end;
@@ -64,6 +69,7 @@ export default {
   align-items: center;
   position: relative;
   width: 100%;
+  z-index: 10;
 }
 
 .cart-container {
@@ -116,16 +122,16 @@ export default {
   justify-content: flex-start;
   flex-wrap: nowrap;
   border-bottom: 1px solid black;
-  font-weight: 200;
+  font-weight: 100;
   padding: 0.5rem;
   padding-right: 8rem;
   width: 80vw;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .cart-title {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
