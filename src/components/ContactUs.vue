@@ -19,7 +19,7 @@
       <table class="table">
         <tr>
           <td>Mon-Fri:</td>
-          <td>08.00-16.00</td>
+          <td>08.00-17.00</td>
         </tr>
         <tr>
           <td>Lunch</td>
