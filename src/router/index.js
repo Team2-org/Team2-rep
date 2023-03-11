@@ -40,6 +40,11 @@ const router = createRouter({
       path: "/products/unisex",
       component: () => import("../components/UnisexGlass.vue"),
     },
+    {
+      path: "/contact",
+      name: "ContactUs",
+      component: () => import("../components/ContactUs.vue"),
+    },
   ],
 });
 

@@ -14,6 +14,7 @@ import NavBar from "./components/NavBar.vue";
 export default {
   mounted() {
     this.$store.commit("updateCartFromLocalStorage");
+    this.$store.commit("updateWishlistFromLocalStorage");
   },
 };
 </script>

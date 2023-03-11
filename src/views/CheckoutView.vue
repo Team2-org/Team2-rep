@@ -30,7 +30,7 @@
           ></label
         ><br />
         <label for="radioB" class="radio"
-          ><input type="radio" name="radio" value="B" /> 49 sek
+          ><input type="radio" name="radio" value="49" /> 49 sek
           <span class="radio-text">Next day home delivery</span></label
         ><br />
       </div>
@@ -74,7 +74,7 @@
     <div class="payment-container">
       <div class="radio2-wrapper">
         <div class="radio1-wrapper">
-          <label for="radio1" id="paycredit" class="radio2">
+          <label for="radio2" id="paycredit" class="radio2">
             <input type="radio" name="radio2" value="1" />
             Pay with Credit card
             <i class="bi bi-credit-card"></i>

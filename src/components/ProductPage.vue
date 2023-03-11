@@ -1,6 +1,5 @@
 <script></script>
 <template>
-  <CartComponent></CartComponent>
   <div class="product-source" v-if="item">
     <div id="product-page">
       <img :src="item.image" class="center" alt="glass" />
@@ -10,18 +9,23 @@
           <h5>{{ item.price }} kr</h5>
         </div>
         <div class="product-icon">
-          <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i>
+          <!-- <i class="bi bi-suit-heart px-2" style="font-size: 1.5rem"></i> -->
+          <i
+            class="bi bi-suit-heart px-2"
+            @click="toggleActive(item)"
+            :style="{
+              color: item.isActive ? 'red' : 'black',
+            }"
+          ></i>
           <input
             type="button"
             @click="addToCart()"
             class="card-btn"
             value="Add to cart"
           />
-          <button @click="removeFromCart()">Remove</button>
-        </div>
-        <div class="cart-total">
-          <p>In cart {{ product_total }}</p>
-          <p>{{ item.quantity }}</p>
+          <!-- <button class="productPageRemove" @click="removeFromCart()">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button> -->
         </div>
       </div>
       <div class="product-description">
@@ -63,6 +67,11 @@
   padding: 5px;
   font-family: Quicksand;
   font-size: 20px;
+}
+.productPageRemove {
+  width: 30px;
+  background-color: white;
+  border: none;
 }
 .product-details {
   display: flex;
@@ -118,7 +127,7 @@
 
 <script>
 import items from "../../public/products.json";
-import CartComponent from "../components/CartComponent.vue";
+// import CartComponent from "../components/CartComponent.vue";
 export default {
   data() {
     props: ["item", "active"];
@@ -138,15 +147,21 @@ export default {
     removeFromCart() {
       this.$store.commit("removeFromCart", this.item);
     },
+    toggleActive(item) {
+      item.isActive = !item.isActive;
+      if (item.isActive) {
+        this.$store.commit("addToWishlist", item);
+      }
+      if (!item.isActive) {
+        this.$store.commit("RemoveItemFromWishlist", item);
+      }
+    },
   },
   computed: {
-    product_total() {
-      return this.$store.getters.productQuantity(this.item);
-    },
     items() {
       return this.$store.getters.cartItems;
     },
   },
-  components: { CartComponent },
+  //   components: { CartComponent },
 };
 </script>

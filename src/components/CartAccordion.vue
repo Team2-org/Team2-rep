@@ -19,12 +19,25 @@ import CartComponent from "./CartComponent.vue";
 
       <!-- <div class="items-qty"></div>
       <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
+
+      <div class="items-qty">
+        You have {{ totalQuantity }} items in your cart
+      </div>
+      <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
+
       <div class="cart-container-items">
         <CartComponent>Cart</CartComponent>
       </div>
       <section id="check-wrapper">
-        <div class="shipping">Shipping:</div>
-        <div class="total">Total:</div>
+        <p class="shipping">Shipping: 49 sek</p>
+        <!-- <div class="cost"> -->
+        <h5 class="total">
+          Total:
+          <!-- <div class="totalCost"> -->
+          <span class="totalCost">{{ cartTotal }} sek</span>
+        </h5>
+        <!-- </div> -->
+        <!-- </div> -->
         <button type="button" class="check-btn" @click="checkOut">
           Continue to checkout
         </button>
@@ -45,13 +58,19 @@ export default {
       this.$emit("toggle");
     },
     checkOut() {
-      // fixa
+      this.$router.push({ name: "checkout" });
     },
   },
   computed: {
     items() {
       return this.$store.getters.cartItems;
     },
+    cartTotal() {
+      return this.$store.getters.cartTotal;
+    },
+    // totalQuantity() {
+    //   return this.$store.getters.totaQuantity;
+    // },
   },
   components: { CartComponent },
 };
@@ -111,6 +130,7 @@ export default {
 }
 .cart-container-items {
   width: 100%;
+  height: 80%;
   overflow-y: scroll;
 }
 .items {
@@ -125,6 +145,7 @@ export default {
   font-weight: 100;
   padding: 0.5rem;
   padding-right: 8rem;
+  margin-bottom: 0;
   width: 80vw;
   font-size: 1.25rem;
 }
@@ -135,35 +156,48 @@ export default {
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
-  justify-content: top;
-  padding-top: -5rem;
+  /* justify-content: center; */
+  /* padding-top: ; */
 }
 
 .items-qty {
   border-bottom: 1px solid black;
   font-weight: 100;
+  padding-bottom: 2vh;
 }
 
 .shipping {
   font-weight: 200;
   margin-top: 1rem;
 }
+/* .cost {
+  display: inline;
+} */
 .total {
   font-weight: 200;
   margin-top: 0.5rem;
 }
+.totalCost {
+  font-weight: 200;
+}
 .check-btn {
-  background-color: rgb(188, 244, 188);
+  background-color: rgba(134, 179, 147, 57%);
   margin: 1rem 3rem 1rem 3rem;
   font-size: 1rem;
   border-radius: 0.5rem;
-  border: solid 0.5px;
+  border: none;
 }
 
-/* .shipping,
-.total,
-.check-btn {
+.shipping {
+  padding: 0;
+  margin: 0;
+}
+.total {
+  padding: 0;
+  margin: 0;
+}
 
+/* .check-btn {
 } */
 
 #check-wrapper {
