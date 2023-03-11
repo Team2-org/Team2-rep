@@ -61,15 +61,21 @@ export default {
       const val = await res.json();
       this.items = val.filter((p) => p.gender === "female");
     },
+
     toggleActive(item) {
       item.isActive = !item.isActive;
       if (item.isActive) {
-        this.wishlist.push(item);
-        localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+        this.$store.commit("addToWishlist", item);
+      }
+      if (!item.isActive) {
+        this.$store.commit("RemoveItemFromWishlist", item);
       }
     },
     loadNextPage() {
       window.scrollTo(0, 0);
+    },
+    addToWishlist(item) {
+      this.$store.commit("addToWishlist", item);
     },
   },
 };

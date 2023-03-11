@@ -1,5 +1,5 @@
 <template>
-  <div id="footer" class="container">
+  <div id="footer">
     <div class="row">
       <div class="col-sm">
         <ul class="footer-list">
@@ -70,6 +70,9 @@ export default {
 }
 .footer-list {
   list-style: none;
+}
+.row {
+  margin-left: 5%;
 }
 
 .icon {
