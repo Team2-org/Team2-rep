@@ -17,6 +17,7 @@
             {{ item.name }}
           </h5></router-link
         >
+
         <p class="wishlist-text">
           {{ item.price }} sek<span>
             <!-- {{ product_total }} -->
@@ -57,6 +58,7 @@ export default {
     addToCart(item) {
       this.$store.commit("addToCart", item);
     },
+
     loadNextPage() {
       window.scrollTo(0, 0);
     },
