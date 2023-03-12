@@ -15,7 +15,7 @@ import CartComponent from "./CartComponent.vue";
           Continue shopping
         </p>
       </div>
-      <!-- <div class="cart-title">{{ title }}</div> -->
+      <div class="cart-title">Cart</div>
 
       <!-- <div class="items-qty"></div>
       <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
@@ -26,7 +26,7 @@ import CartComponent from "./CartComponent.vue";
       <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
 
       <div class="cart-container-items">
-        <CartComponent>Cart</CartComponent>
+        <CartComponent></CartComponent>
       </div>
       <section id="check-wrapper">
         <p class="shipping">Shipping: 49 sek</p>
@@ -109,6 +109,10 @@ export default {
   /* display: none; */
 }
 
+.cart-container-items {
+  display: block;
+}
+
 .cart-container.show {
   display: flex;
   right: -1rem;
@@ -156,12 +160,12 @@ export default {
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
-  /* justify-content: center; */
-  /* padding-top: ; */
+
+  font-family: italiana;
 }
 
 .items-qty {
-  border-bottom: 1px solid black;
+  border-bottom: 0.5px solid black;
   font-weight: 100;
   padding-bottom: 2vh;
 }
@@ -215,144 +219,68 @@ px-2 {
 
 @media only screen and (max-width: 1200px) {
   .cont-shop {
-    font-size: 1.25rem;
     padding-right: 5rem;
   }
 }
 
-@media only screen and (max-width: 1100px) {
-  .cont-shop {
-    font-size: 1.25rem;
-    padding-right: 5rem;
-  }
-  .cart-container.show {
-    width: 35vw;
-  }
-  .cart-title {
-    font-size: 1.5rem;
-  }
+.cart-container.show {
+  width: 35vw;
 }
+
 @media only screen and (max-width: 1000px) {
-  .cont-shop {
-    font-size: 1.125rem;
-    padding-right: 4rem;
-  }
   .cart-container.show {
     width: 40vw;
-  }
-  .cart-title {
-    font-size: 1.4rem;
   }
 }
 
 @media only screen and (max-width: 820px) {
-  .cont-shop {
-    font-size: 1.125rem;
-    padding-right: 3rem;
-  }
   .cart-container.show {
-    width: 40vw;
-  }
-  .cart-title {
-    font-size: 1.4rem;
+    width: 45vw;
   }
 }
 
 @media only screen and (max-width: 775px) {
-  .cont-shop {
-    font-size: 1.1rem;
-    padding-right: 3rem;
-  }
-  .cart-container.show {
-    width: 45vw;
-  }
-  .cart-title {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 668px) {
-  .cont-shop {
-    font-size: 1.1rem;
-    padding-right: 2.5rem;
-  }
   .cart-container.show {
     width: 50vw;
   }
-  .cart-title {
-    font-size: 1.3rem;
+}
+@media only screen and (max-width: 668px) {
+  .cart-container.show {
+    width: 50vw;
+  }
+  .cont-shop {
+    padding-right: 0rem;
   }
 }
 @media only screen and (max-width: 577px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 55vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 525px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 60vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 
 @media only screen and (max-width: 475px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 60vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 430px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 65vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 @media only screen and (max-width: 400px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 1rem;
-  }
   .cart-container.show {
     width: 65vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 385px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 1rem;
-  }
   .cart-container.show {
     width: 70vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 </style>
