@@ -85,23 +85,9 @@ import CompWelcome from "./CompWelcome.vue";
                   :to="{ path: `/products/unisex` }"
                   ><li class="dropdown-item">Unisex</li></router-link
                 >
-                <!-- <li>
-                  <a class="dropdown-item" href="#">Unisex</a>
-                </li> -->
               </ul>
             </li>
           </ul>
-          <form class="d-flex mt-3" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
       <RouterLink
@@ -111,9 +97,13 @@ import CompWelcome from "./CompWelcome.vue";
         to="/"
         >Spectacular</RouterLink
       >
+<<<<<<< HEAD
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
       <CompWelcome />
+=======
+
+>>>>>>> cdd15f6af8ae7b9cf90625fd544edb7fe144838a
       <div class="nav-icon">
         <button
           class="bi bi-person px-2"

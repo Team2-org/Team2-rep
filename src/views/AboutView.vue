@@ -6,3 +6,10 @@ import CompAbout from "../components/CompAbout.vue";
 </template>
 
 <style></style>
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+};
+</script>

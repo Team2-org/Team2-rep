@@ -1,13 +1,22 @@
 <template>
-  <h2>Cart</h2>
+  <!-- <h2>Cart</h2> -->
   <div class="cartCard" v-for="item in items" :key="item.id" :item="item">
-    <div class="img-cart">
-      <img :src="item.image" class="cartImage" alt="..." />
+    <img :src="item.image" class="cartImage" alt="..." />
+
+    <div class="cartBody">
+      <router-link class="cart-title" :to="{ path: `/products/${item.id}` }"
+        ><h5 @click="loadNextPage" class="cart-title">
+          {{ item.name }}
+        </h5></router-link
+      >
+      <p class="cart-text">{{ item.price }} sek</p>
+      <!-- {{ product_total }} -->
+      <p class="qty-text">{{ item.quantity }} pcs</p>
+      <button class="CartRemove" @click="RemoveItemFromCart(item)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </button>
     </div>
-    <h5 class="cart-title">{{ item.name }}</h5>
-    <p class="cart-text">{{ item.price }} sek</p>
-    <!-- {{ product_total }} -->
-    <p class="qty-text">{{ item.quantity }} pcs</p>
+
     <!-- <button class="addToCartButton" @click="addToCart()">
       <ion-icon name="caret-up-outline"></ion-icon>
     </button>
@@ -25,14 +34,20 @@ export default {
       item: "",
     };
   },
-  //   methods: {
-  //     addToCart() {
-  //       this.$store.commit("addToCart", this.item);
-  //     },
-  //     removeFromCart() {
-  //       this.$store.commit("removeFromCart", this.item);
-  //     },
-  //   },
+  methods: {
+    //   addToCart() {
+    //     this.$store.commit("addToCart", this.item);
+    //   },
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.item);
+    },
+    RemoveItemFromCart(item) {
+      this.$store.commit("RemoveItemFromCart", item);
+    },
+    loadNextPage() {
+      window.scrollTo(0, 0);
+    },
+  },
   computed: {
     items() {
       return this.$store.getters.cartItems;
@@ -47,30 +62,52 @@ export default {
 
 <style>
 .cartCard {
-  width: 20vw;
+  width: 100%;
+  border-bottom: solid 1px black;
+  display: flex;
 }
 .cartImage {
-  width: 20vw;
+  width: 45%;
+  padding: 10px 10px 10px 0px;
+}
+
+.cartBody {
+  width: 55%;
+  padding: 10px 5px;
 }
 .cart-title {
-  font-size: 0.7em;
+  font-size: 1em;
+  font-family: Quicksand;
+  color: black;
   margin: 0;
+  text-decoration: none;
 }
 .cart-text {
   font-size: 0.6em;
   margin: 0;
+  padding-top: 2vh;
 }
 .qty-text {
   font-size: 0.6em;
   margin: 0;
 }
 
-#cartTrash {
+/* #cartTrash {
   padding-left: 2vw;
   font-size: 1.1em;
   position: absolute;
   bottom: 5.5vh;
   right: 1.5vw;
+} */
+.CartRemove {
+  width: 30px;
+  background-color: white;
+  border: none;
+  margin-left: auto;
+  font-size: 1.1em;
+  display: flex;
+  /* justify-content: end; */
+  align-items: end;
 }
 .addToCartButton {
   width: 25px;

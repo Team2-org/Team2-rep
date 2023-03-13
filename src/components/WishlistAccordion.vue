@@ -14,52 +14,51 @@
       <div class="wishlist-title">{{ title }}</div>
 
       <div class="wishlist-items-container">
-        <!-- <div v-if="item === null"><p>Du har inget i varukorgen.</p></div> -->
-        <div class="fetch-card">
-          <div class="row" v-if="items !== null">
-            <div class="card" v-for="item in wishlist" :key="item.id">
-              <div class="img-wrapper">
-                <div class="img-card">
-                  <img :src="item.image" class="card-img-top" alt="..." />
-                </div>
+        <div v-if="item === null"><p>Du har inget i varukorgen.</p></div>
+        <!-- <div class="fetch-card"> -->
+        <WishlistItems></WishlistItems>
+        <div class="row" v-if="items !== null">
+          <div class="card" v-for="item in wishlist" :key="item.id">
+            <div class="img-wrapper">
+              <div class="img-card">
+                <img :src="item.image" class="card-img-top" alt="..." />
               </div>
+            </div>
 
-              <div class="card-body">
-                <router-link class="link" :to="{ path: `/products/${item.id}` }"
-                  ><h5
-                    class="card-title"
-                    id="card-title"
-                    style="cursor: pointer"
-                    @click="redirectToProduct"
-                  >
-                    {{ item.name }}
-                  </h5></router-link
-                >
-                <!-- <h6 class="card-subtitle mb-2 text-muted">
+            <div class="card-body">
+              <router-link
+                class="card-heading"
+                :to="{ path: `/products/${item.id}` }"
+                ><h5 class="card-title">
+                  {{ item.name }}
+                </h5></router-link
+              >
+              <!-- <h6 class="card-subtitle mb-2 text-muted">
                   {{ item.brand }}
                 </h6> -->
-                <p class="card-text">
-                  {{ item.price }} Sek
-                  <span
-                    ><ion-icon
-                      name="trash-outline"
-                      id="trash"
-                      style="cursor: pointer"
-                      @click="removeFromWishlist(item)"
-                    ></ion-icon
-                  ></span>
-                </p>
-                <button @click="addToCart" id="toCartBtn">Add to cart</button>
-              </div>
+              <p class="card-text">
+                {{ item.price }} Sek
+                <span
+                  ><ion-icon
+                    name="trash-outline"
+                    id="trash"
+                    style="cursor: pointer"
+                    @click="removeFromWishlist(item)"
+                  ></ion-icon
+                ></span>
+              </p>
+              <button @click="addToCart" id="toCartBtn">Add to cart</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- </div>-->
   </div>
 </template>
 
 <script>
+import WishlistItems from "./WishlistItems.vue";
 export default {
   props: {
     title: String,
@@ -69,6 +68,12 @@ export default {
       isWishlistExpanded: !this.isWishlistExpanded,
     }; // Sätter man den som false by default försvinner den.
   },
+
+  //Page shows from the top
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+
   created() {
     this.wishlist = JSON.parse(localStorage.getItem("wishlist"));
   },
@@ -76,10 +81,14 @@ export default {
     toggleWishlist() {
       this.$emit("toggle");
     },
+    loadNextPage() {
+      window.scrollTo(0, 0);
+    },
     // removeFromWishlist() {
     //   localStorage.removeItem("item");
     // },
   },
+  components: { WishlistItems },
 };
 </script>
 
@@ -134,14 +143,17 @@ export default {
 .wishlist-items-container {
   font-family: Quicksand;
   height: 70%;
+  width: 98%;
   background: #fff;
   overflow-y: scroll;
+  overflow-x: hidden;
+  justify-content: center;
 }
 
 .card {
+  display: flex;
   margin: 0;
   padding: 1vw;
-  padding-top: 1vw;
   width: 50%;
   height: 29vh;
   overflow: hidden;
@@ -169,23 +181,26 @@ a:hover {
   font-style: italic;
 }
 
-.img-card img {
-  /* padding: 10px; */
-  height: 15vh;
-  display: block;
-  width: 100%;
+.card-img-top {
+  /* height: 15vh; */
+  /* display: block; */
+  width: 90%;
+  padding: 2px;
   overflow: hidden;
   border-radius: 0;
-}
-
-.img-wrapper {
   display: flex;
   justify-content: center;
 }
+
+/* .img-wrapper {
+  display: flex;
+  justify-content: center;
+} */
 .img-card {
   position: relative;
   width: max-content;
   width: 20vw;
+  justify-content: center;
 }
 .card-title {
   font-size: 0.7em;
@@ -196,23 +211,24 @@ a:hover {
   margin: 0;
 }
 #trash {
-  padding-left: 2vw;
-  font-size: 1.1em;
+  /* padding-left: 3vw; */
+  font-size: 1.3em;
   position: absolute;
   bottom: 5.5vh;
-  right: 1.5vw;
+  right: 0vw;
 }
 #toCartBtn {
   background-color: #86b393;
-  width: 80%;
+  width: 100%;
+  height: fit-content;
   border: none;
   border-radius: 5px;
   margin-bottom: 2vh;
   margin-top: 1vh;
   font-size: 0.6em;
-  position: absolute;
-  bottom: 0;
-  margin-right: 7vw;
+  /* position: absolute;
+  bottom: 0; */
+  /* margin-right: 7vw; */
   justify-content: center;
 }
 
