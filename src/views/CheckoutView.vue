@@ -41,26 +41,52 @@
       <form class="shipping-form">
         <div class="col-50">
           <label for="fname"> First name</label>
-          <input type="text" id="fname" name="firstname" placeholder="John" />
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="John"
+            class="form-input"
+          />
           <label for="lname"> Last name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Doe" />
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Doe"
+            class="form-input"
+          />
           <label for="adr"> Address</label>
           <input
             type="text"
             id="adr"
             name="address"
             placeholder="542 W. 15th Street"
+            class="form-input"
           />
           <label for="city">City</label>
-          <input type="text" id="city" name="city" placeholder="New York" />
-          <label for="postal">Postal code</label>
-          <input type="text" id="postal" name="postal" placeholder="12345" />
-          <label for="phone">Phone number</label>
           <input
             type="text"
+            id="city"
+            name="city"
+            placeholder="New York"
+            class="form-input"
+          />
+          <label for="postal">Postal code</label>
+          <input
+            type="number"
+            id="postal"
+            name="postal"
+            placeholder="12345"
+            class="form-input"
+          />
+          <label for="phone">Phone number</label>
+          <input
+            type="number"
             id="phone"
             name="phone"
             placeholder="070 123 45 67"
+            class="form-input"
           />
           <label for="checkbox" class="save-checkbox">
             <input type="checkbox" name="checkbox" /> Save this information for
@@ -83,10 +109,11 @@
             <div class="col-501">
               <label for="cardnumber"> Card number</label>
               <input
-                type="text"
+                type="number"
                 id="cardnumber"
                 name="cardnumber"
                 placeholder="123 456 789 123"
+                class="form-input"
               />
               <label for="cardname"> Name on card</label>
               <input
@@ -94,6 +121,7 @@
                 id="cardname"
                 name="cardnme"
                 placeholder="John Doe"
+                class="form-input"
               />
               <label for="expDate"> Expiration date</label>
               <input
@@ -101,17 +129,18 @@
                 id="expDate"
                 name="expDate"
                 placeholder="01/24"
+                class="form-input"
               />
               <!--Script makes sure the security number can only be 3 digits long-->
               <label for="securityNr">Security number</label>
               <input
-                v-model="securityAmount"
                 type="number"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength="3"
                 id="securityNr"
                 name="securityNr"
                 placeholder="000"
+                class="form-input"
               />
             </div>
           </form>
@@ -133,10 +162,17 @@
       <p id="totalcost">Total: {{ total }}</p>
       <!--INSERT TOTAL COST HERE-->
       <input
+        @click.prevent="continueToPayment"
+        @click="checkFields"
         type="button"
         class="continue-button"
         value="Continue to payment"
       />
+      <Transition
+        ><p v-if="showErrorMessage" style="color: red">
+          Please fill in all fields before continuing
+        </p></Transition
+      >
     </div>
   </div>
 </template>
@@ -147,6 +183,17 @@ export default {
   data() {
     return {
       modalIsOpen: false,
+      fname: "",
+      lname: "",
+      adr: "",
+      city: "",
+      postal: "",
+      phone: "",
+      cardnumer: "",
+      cardname: "",
+      expDare: "",
+      securityNr: "",
+      showErrorMessage: false, // Shows error message if the above are empty
     };
   },
   methods: {
@@ -156,13 +203,60 @@ export default {
     closeModal() {
       this.modalIsOpen = false;
     },
+    continueToPayment() {
+      if (
+        !this.fname ||
+        !this.lname ||
+        !this.adr ||
+        !this.city ||
+        !this.postal ||
+        !this.phone ||
+        !this.cardnumber ||
+        !this.cardname ||
+        !this.expDate ||
+        !this.securityNr
+      ) {
+        this.showErrorMessage = true;
+      } else {
+        // code here to continue to payment
+        location.reload;
+        this.showErrorMessage = false;
+      }
+    },
+    checkFields() {
+      const inputs = document.querySelectorAll(".form-input");
+      for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        if (input.value === "") {
+          input.classList.add("invalid");
+        } else {
+          input.classList.remove("invalid");
+        }
+      }
+    },
   },
-
   components: { EmptyModal },
 };
 </script>
 
 <style scoped>
+.form-input {
+  border: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.invalid {
+  border: 1px solid red !important ;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 .bar-top {
   width: 100vw;
   height: 80px;
