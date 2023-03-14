@@ -78,8 +78,8 @@ import ModalRight from "./ModalRight.vue";
             id="show-button"
             class="filter-button"
             value="Apply"
-            @click="closeFilter"
             aria-label="Close modal"
+            @click="filterItems(allFilters)"
           />
         </div>
       </div>
@@ -150,10 +150,14 @@ export default {
     removeSelected(index) {
       return this.allFilters.splice(index, 1);
     },
+    filterItems(allFilters) {
+      this.$emit("all-filters", allFilters);
+    },
   },
   components: {
     ModalRight,
   },
+  emits: ["all-filters"],
 };
 </script>
 <style scoped>
@@ -203,8 +207,8 @@ fieldset {
   flex-direction: row;
   border: solid 0.5px;
   border-radius: 5px;
-  border-color: rgba(124, 124, 124, 1);
   background-color: rgb(230, 185, 192);
+  border-color: rgba(124, 124, 124, 1);
   margin-left: 3vw;
   padding: 1vw;
 }
@@ -219,6 +223,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked {
   accent-color: rgba(124, 124, 124, 1);
+  color: aqua;
 }
 .input-wrapper {
   width: auto;
@@ -252,19 +257,18 @@ input[type="checkbox"]:checked {
   font-size: 1.5rem;
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 .button {
   display: flex;
   justify-content: center;
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
-  margin-top: 1rem;
-}
-.button-wrapper {
-  position: relative;
-  bottom: 0;
 }
 #delete-button {
+  position: fixed;
+  bottom: 10vw;
+  left: 13vw;
   width: 9rem;
   height: 3rem;
   margin: 1vw;
@@ -275,6 +279,9 @@ input[type="checkbox"]:checked {
 }
 
 #show-button {
+  position: fixed;
+  bottom: 10vw;
+  right: 5vw;
   width: 9rem;
   height: 3rem;
   margin: 1vw;
@@ -284,6 +291,17 @@ input[type="checkbox"]:checked {
   cursor: pointer;
 }
 
+@media screen and (min-width: 390px) {
+  #delete-button {
+    width: 10rem;
+    left: 13vw;
+  }
+
+  #show-button {
+    width: 10rem;
+    right: 5vw;
+  }
+}
 @media screen and (min-width: 600px) {
   .category-wrapper {
     margin: 0 20px;
@@ -316,85 +334,108 @@ input[type="checkbox"]:checked {
     margin-top: 8rem;
     font-size: 1.4rem;
   }
-  .button-wrapper {
-  }
   #delete-button {
-    width: 15rem;
+    width: 13rem;
+    left: 35vw;
   }
 
   #show-button {
-    width: 15rem;
+    width: 13rem;
+    right: 5vw;
   }
 }
 @media screen and (min-width: 900px) {
   .category-wrapper {
-    margin: 0 20px;
+    margin: 0 10px;
+    padding: 0;
   }
   .filter-header {
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     padding-bottom: 0;
   }
   #filter-h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   fieldset {
     padding-top: 0;
   }
   .filter-p {
-    font-size: 1.3rem;
-    margin-top: 0.5vh;
+    font-size: 1.1rem;
+    margin-top: 0.7vh;
+    margin-left: 1vh;
   }
   .checkbox-wrapper {
-    margin-left: 1.3vh;
+    margin-left: 1.2vh;
     margin-bottom: 1vh;
-    padding: 0.8vh;
+    padding: 0vh 0.8vh;
   }
   .input-wrapper {
     display: flex;
     flex-wrap: wrap;
-    padding: 0.6vh 0;
+    padding: 0.5vh;
   }
   .label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-left: 0.5vh;
     cursor: pointer;
   }
 
   input[type="checkbox"] {
-    width: 1.5vh;
-    height: 1.5vh;
+    width: 1.6vh;
+    height: 1.6vh;
+  }
+  .selected-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3vh;
+    margin-left: 3vh;
+  }
+  .selected {
+    margin-left: 0.5vh;
+    margin-right: 0.5vh;
+    margin-bottom: 1vh;
+    padding: 0.5vh;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
+  }
+  #remove-selected {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
   }
   .button {
     margin-top: 8rem;
     font-size: 1.2rem;
   }
   .button-wrapper {
-    position: absolute;
     bottom: 5rem;
   }
   #delete-button {
     width: 10rem;
-    height: 7vh;
-    margin-right: 30vh;
+    height: 6vh;
+    left: auto;
+    right: 35vh;
+    bottom: 3vh;
   }
 
   #show-button {
     width: 10rem;
-    height: 7vh;
-    margin-left: 30vh;
+    height: 6vh;
+    right: 5vh;
+    bottom: 3vh;
   }
 }
 @media screen and (min-width: 1100px) {
   #delete-button {
     width: 12rem;
-    height: 7vh;
-    margin-right: 30vh;
+    height: 6vh;
+    right: 40vh;
   }
 
   #show-button {
     width: 12rem;
-    height: 7vh;
-    margin-left: 30vh;
+    height: 6vh;
+    right: 10vh;
   }
 }
 </style>
