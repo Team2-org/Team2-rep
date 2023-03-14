@@ -1,7 +1,8 @@
 <template>
-  <!-- <h2>Cart</h2> -->
   <div class="cartCard" v-for="item in items" :key="item.id" :item="item">
-    <img :src="item.image" class="cartImage" alt="..." />
+    <div class="cartImageWrapper">
+      <img :src="item.image" class="cartImage" alt="..." />
+    </div>
 
     <div class="cartBody">
       <router-link class="cart-title" :to="{ path: `/products/${item.id}` }"
@@ -10,19 +11,20 @@
         </h5></router-link
       >
       <p class="cart-text">{{ item.price }} sek</p>
-      <!-- {{ product_total }} -->
-      <p class="qty-text">{{ item.quantity }} pcs</p>
+      <div class="addRemovePcs">
+        <p class="qty-text">{{ item.quantity }}</p>
+        <div class="addRemove">
+          <ion-icon name="caret-up-outline" @click="addToCart(item)"></ion-icon>
+          <ion-icon
+            name="caret-down-outline"
+            @click="removeFromCart(item)"
+          ></ion-icon>
+        </div>
+      </div>
       <button class="CartRemove" @click="RemoveItemFromCart(item)">
         <ion-icon name="trash-outline"></ion-icon>
       </button>
     </div>
-
-    <!-- <button class="addToCartButton" @click="addToCart()">
-      <ion-icon name="caret-up-outline"></ion-icon>
-    </button>
-     <button class="removeFromCartButton" @click="removeFromCart()">
-      <ion-icon name="caret-down-outline"></ion-icon>
-    </button>-->
   </div>
 </template>
 
@@ -35,11 +37,11 @@ export default {
     };
   },
   methods: {
-    //   addToCart() {
-    //     this.$store.commit("addToCart", this.item);
-    //   },
-    removeFromCart() {
-      this.$store.commit("removeFromCart", this.item);
+    addToCart(item) {
+      this.$store.commit("addToCart", item);
+    },
+    removeFromCart(item) {
+      this.$store.commit("removeFromCart", item);
     },
     RemoveItemFromCart(item) {
       this.$store.commit("RemoveItemFromCart", item);
@@ -52,11 +54,7 @@ export default {
     items() {
       return this.$store.getters.cartItems;
     },
-    // product_total() {
-    //   return this.$store.getters.productQuantity(this.item);
-    // },
   },
-  //   component: { CartItem },
 };
 </script>
 
@@ -66,9 +64,16 @@ export default {
   border-bottom: solid 1px black;
   display: flex;
 }
-.cartImage {
-  width: 45%;
+.cartImageWrapper {
+  display: flex;
+}
+img {
+  width: 20vw;
+  height: 30vh;
+  object-fit: cover;
   padding: 10px 10px 10px 0px;
+  display: flex;
+  align-self: center;
 }
 
 .cartBody {
@@ -81,24 +86,30 @@ export default {
   color: black;
   margin: 0;
   text-decoration: none;
-}
-.cart-text {
-  font-size: 0.6em;
-  margin: 0;
   padding-top: 2vh;
 }
-.qty-text {
-  font-size: 0.6em;
+.cart-text {
+  font-size: 0.8em;
   margin: 0;
+  padding-top: 2vh;
+  display: flex;
 }
-
-/* #cartTrash {
-  padding-left: 2vw;
-  font-size: 1.1em;
-  position: absolute;
-  bottom: 5.5vh;
-  right: 1.5vw;
-} */
+.qty-text {
+  font-size: 0.8em;
+  margin: 0;
+  padding-top: 7px;
+  padding-right: 3px;
+}
+.addRemovePcs {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding-top: 2vh;
+}
+.addRemove {
+  display: flex;
+  flex-direction: column;
+}
 .CartRemove {
   width: 30px;
   background-color: white;
@@ -106,22 +117,21 @@ export default {
   margin-left: auto;
   font-size: 1.1em;
   display: flex;
-  /* justify-content: end; */
   align-items: end;
+}
+
+@media (max-width: 400px) {
+  .CartRemove {
+    color: rgba(255, 255, 255, 0);
+  }
 }
 .addToCartButton {
   width: 25px;
-  /* position: absolute;
-  top: 0;
-  right: 0; */
   background-color: #fff3f3;
   border: none;
 }
 .removeFromCartButton {
   width: 25px;
-  /* position: absolute;
-  top: 0;
-  right: 0; */
   background-color: #fff3f3;
   border: none;
 }
