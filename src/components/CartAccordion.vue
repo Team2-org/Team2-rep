@@ -3,6 +3,7 @@ import CartComponent from "./CartComponent.vue";
 </script>
 
 <template>
+  <div class="modal-overlay" v-if="isExpanded" @click="toggleAccordion"></div>
   <div class="wrapper">
     <div>
       <i class="bi bi-cart2 px-2" @click="toggleAccordion"></i>
@@ -14,12 +15,16 @@ import CartComponent from "./CartComponent.vue";
           Continue shopping
         </p>
       </div>
-      <div class="cart-title">{{ title }}</div>
+      <div class="cart-title">Cart</div>
+
+      <!-- <div class="items-qty"></div>
+      <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
 
       <div class="items-qty">
         You have {{ totalQuantity }} items in your cart
       </div>
       <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
+
       <div class="cart-container-items">
         <CartComponent></CartComponent>
       </div>
@@ -53,7 +58,7 @@ export default {
       this.$emit("toggle");
     },
     checkOut() {
-        this.$router.push({ name: "checkout" });
+      this.$router.push({ name: "checkout" });
     },
   },
   computed: {
@@ -72,6 +77,10 @@ export default {
 </script>
 
 <style scoped>
+.modal-overlay {
+  background-color: transparent;
+  z-index: 10;
+}
 .wrapper {
   display: flex;
   justify-content: flex-end;
@@ -79,6 +88,7 @@ export default {
   align-items: center;
   position: relative;
   width: 100%;
+  z-index: 10;
 }
 
 .cart-container {
@@ -97,6 +107,10 @@ export default {
   padding: 1rem;
 
   /* display: none; */
+}
+
+.cart-container-items {
+  display: block;
 }
 
 .cart-container.show {
@@ -132,26 +146,26 @@ export default {
   justify-content: flex-start;
   flex-wrap: nowrap;
   border-bottom: 1px solid black;
-  font-weight: 200;
+  font-weight: 100;
   padding: 0.5rem;
   padding-right: 8rem;
   margin-bottom: 0;
   width: 80vw;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .cart-title {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
-  /* justify-content: center; */
-  /* padding-top: ; */
+
+  font-family: italiana;
 }
 
 .items-qty {
-  border-bottom: 1px solid black;
+  border-bottom: 0.5px solid black;
   font-weight: 100;
   padding-bottom: 2vh;
 }
@@ -205,144 +219,68 @@ px-2 {
 
 @media only screen and (max-width: 1200px) {
   .cont-shop {
-    font-size: 1.25rem;
     padding-right: 5rem;
   }
 }
 
-@media only screen and (max-width: 1100px) {
-  .cont-shop {
-    font-size: 1.25rem;
-    padding-right: 5rem;
-  }
-  .cart-container.show {
-    width: 35vw;
-  }
-  .cart-title {
-    font-size: 1.5rem;
-  }
+.cart-container.show {
+  width: 35vw;
 }
+
 @media only screen and (max-width: 1000px) {
-  .cont-shop {
-    font-size: 1.125rem;
-    padding-right: 4rem;
-  }
   .cart-container.show {
     width: 40vw;
-  }
-  .cart-title {
-    font-size: 1.4rem;
   }
 }
 
 @media only screen and (max-width: 820px) {
-  .cont-shop {
-    font-size: 1.125rem;
-    padding-right: 3rem;
-  }
   .cart-container.show {
-    width: 40vw;
-  }
-  .cart-title {
-    font-size: 1.4rem;
+    width: 45vw;
   }
 }
 
 @media only screen and (max-width: 775px) {
-  .cont-shop {
-    font-size: 1.1rem;
-    padding-right: 3rem;
-  }
-  .cart-container.show {
-    width: 45vw;
-  }
-  .cart-title {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 668px) {
-  .cont-shop {
-    font-size: 1.1rem;
-    padding-right: 2.5rem;
-  }
   .cart-container.show {
     width: 50vw;
   }
-  .cart-title {
-    font-size: 1.3rem;
+}
+@media only screen and (max-width: 668px) {
+  .cart-container.show {
+    width: 50vw;
+  }
+  .cont-shop {
+    padding-right: 0rem;
   }
 }
 @media only screen and (max-width: 577px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 55vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 525px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 60vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 
 @media only screen and (max-width: 475px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 60vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 430px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
   .cart-container.show {
     width: 65vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 @media only screen and (max-width: 400px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 1rem;
-  }
   .cart-container.show {
     width: 65vw;
   }
-  .cart-title {
-    font-size: 1.25rem;
-  }
 }
 @media only screen and (max-width: 385px) {
-  .cont-shop {
-    font-size: 1rem;
-    padding-right: 1rem;
-  }
   .cart-container.show {
     width: 70vw;
-  }
-  .cart-title {
-    font-size: 1.25rem;
   }
 }
 </style>

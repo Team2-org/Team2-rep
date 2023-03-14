@@ -1,4 +1,9 @@
 <template>
+  <div
+    class="modal-overlay"
+    v-if="isWishlistExpanded"
+    @click="toggleWishlist"
+  ></div>
   <div class="wrapper">
     <div
       class="wishlist-container"
@@ -93,10 +98,15 @@ export default {
 </script>
 
 <style scoped>
+.modal-overlay {
+  background-color: transparent;
+  z-index: 10;
+}
 .wrapper {
   position: absolute;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .wishlist-container {
@@ -106,9 +116,10 @@ export default {
 .wishlist-container.show {
   transform: translateX(0%);
   height: 80vh;
-  width: 30vw;
-  background-color: #fff3f3;
+  width: 34.8vw;
+  background-color: white;
   border: 1px solid #ccc;
+  border-top: transparent;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -125,20 +136,28 @@ export default {
 
 .cont-shop {
   display: flex;
+  justify-content: space-between;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   border-bottom: 1px solid black;
-  font-weight: 200;
-  font-size: medium;
+  font-weight: 100;
   padding: 0.5rem;
-  width: 30vw;
+  padding-right: 0rem;
+  margin-bottom: 0;
+  width: 80vw;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .wishlist-title {
   display: flex;
   position: relative;
   justify-content: center;
   font-family: italiana;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 200;
+  margin-top: 0;
+  padding-top: 0;
 }
 .wishlist-items-container {
   font-family: Quicksand;
@@ -148,6 +167,9 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   justify-content: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: solid black 0.5px;
 }
 
 .card {
@@ -254,7 +276,7 @@ a:hover {
     background: #86b393;
   }
 
-  .wishlist-container.show {
+  /*   .wishlist-container.show {
     height: 80vh;
     width: 40vw;
   }
@@ -282,6 +304,74 @@ a:hover {
   }
   .cont-shop {
     width: 80vw;
+  }
+} */
+
+  @media only screen and (max-width: 1200px) {
+    .cont-shop {
+      padding-right: 5rem;
+    }
+  }
+
+  .wishlist-container.show {
+    width: 35vw;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .wishlist-container.show {
+      width: 40vw;
+    }
+  }
+
+  @media only screen and (max-width: 820px) {
+    .wishlist-container.show {
+      width: 45vw;
+    }
+  }
+
+  @media only screen and (max-width: 775px) {
+    .wishlist-container.show {
+      width: 50vw;
+    }
+  }
+  @media only screen and (max-width: 668px) {
+    .wishlist-container.show {
+      width: 50vw;
+    }
+    .cont-shop {
+      padding-right: 0rem;
+    }
+  }
+  @media only screen and (max-width: 577px) {
+    .wishlist-container.show {
+      width: 55vw;
+    }
+  }
+  @media only screen and (max-width: 525px) {
+    .wishlist-container.show {
+      width: 60vw;
+    }
+  }
+
+  @media only screen and (max-width: 475px) {
+    .wishlist-container.show {
+      width: 60vw;
+    }
+  }
+  @media only screen and (max-width: 430px) {
+    .wishlist-container.show {
+      width: 65vw;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .wishlist-container.show {
+      width: 65vw;
+    }
+  }
+  @media only screen and (max-width: 385px) {
+    .wishlist-container.show {
+      width: 70vw;
+    }
   }
 }
 </style>
