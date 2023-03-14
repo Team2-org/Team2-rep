@@ -1,6 +1,11 @@
+<script setup>
+import FilterSection from "./FilterSection.vue";
+</script>
 <template>
+  <filter-section @all-filters="filterItems" />
   <div class="fetch-card">
-    <div class="row" v-if="items !== null">
+    <div class="row">
+      <!-- v-if="filteredData !== null" -->
       <div
         class="card"
         style="width: 18rem"
@@ -44,8 +49,10 @@
 </template>
 <script>
 export default {
+  components: FilterSection,
   data() {
     return {
+      selectedItems: [],
       items: null,
       //   items: items.map((item) => ({ ...item, isActive: false })),
 
@@ -82,6 +89,25 @@ export default {
     // RemoveItemFromWishlist(item) {
     //   this.$store.commit("RemoveItemFromWishlist", item);
     // },
+    // this puts yellow in the selectedItems-list in data
+    filterItems(allFilters) {
+      this.selectedItems = allFilters;
+      this.selectedItems.forEach((filter) => filter.toLowerCase());
+      console.log(this.selectedItems);
+    },
+  },
+  computed: {
+    filteredData() {
+
+      // const data = this.selectedItems
+      //   ? this.items.filter((item) => item.color === this.selectedItems)
+      //   : this.items;
+      //   return console.log(data);
+
+         return this.items.filter((item) =>
+        item.color.includes(this.selectedItems)
+      );
+      },
   },
 };
 </script>

@@ -103,11 +103,6 @@ export default {
 }
 @media screen and (min-width: 900px) {
   #modal-wrapper {
-    width: 60%;
-  }
-}
-@media screen and (min-width: 1100px) {
-  #modal-wrapper {
     width: 40%;
   }
 }
