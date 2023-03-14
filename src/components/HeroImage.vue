@@ -31,7 +31,7 @@ export default {
   </div>
   <div>
     <h1 class="hero-text1" style="position: absolute; z-index: 100">
-      Högkvalitativa bågar till ett förnutigt pris<br />
+      Högkvalitativa bågar till ett förnuftigt pris<br />
     </h1>
     <button
       id="hero-btn"
