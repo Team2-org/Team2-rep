@@ -4,8 +4,13 @@
 
     <form id="loginForm">
       <p id="emailLabel">E-mail</p>
-      <input type="email" id="email" placeholder="name@mail.com" />
-
+      <input
+        type="email"
+        v-model="email"
+        id="email"
+        placeholder="name@mail.com"
+      />
+      <p>{{ email }}</p>
       <!-- Password input with show password button -->
       <div class="passw">
         <p class="inputLabel" id="passwordLbl">
@@ -94,6 +99,7 @@ export default {
   data() {
     return {
       inputType: "password",
+      email: "",
     };
   },
   methods: {
