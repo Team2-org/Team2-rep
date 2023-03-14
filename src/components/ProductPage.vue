@@ -68,11 +68,11 @@
   font-family: Quicksand;
   font-size: 20px;
 }
-.productPageRemove {
+/* .productPageRemove {
   width: 30px;
   background-color: white;
   border: none;
-}
+} */
 .product-details {
   display: flex;
   flex-direction: row;

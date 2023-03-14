@@ -146,7 +146,8 @@ import CompWelcome from "./CompWelcome.vue";
       </div>
     </div>
   </nav>
-  <RouterView />
+  <!-- <RouterView /> -->
+  <router-view :key="$route.fullPath" />
 </template>
 <style scoped>
 .navbar .navbar-toggler {
