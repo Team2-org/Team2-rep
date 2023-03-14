@@ -41,8 +41,6 @@ import FilterSection from "./FilterSection.vue";
           </h6>
           <p class="card-text">{{ item.price }} Sek</p>
         </div>
-        <!-- <button @click="addToWishlist(item)">wishlist</button> -->
-        <!-- <button @click="RemoveItemFromWishlist(item)">remove</button> -->
       </div>
     </div>
   </div>
@@ -57,7 +55,6 @@ export default {
       //   items: items.map((item) => ({ ...item, isActive: false })),
 
       active: false,
-      //   wishlist: [],
       item: "",
     };
   },
@@ -86,6 +83,7 @@ export default {
     addToWishlist(item) {
       this.$store.commit("addToWishlist", item);
     },
+
     // RemoveItemFromWishlist(item) {
     //   this.$store.commit("RemoveItemFromWishlist", item);
     // },
@@ -108,6 +106,7 @@ export default {
         item.color.includes(this.selectedItems)
       );
       },
+
   },
 };
 </script>
