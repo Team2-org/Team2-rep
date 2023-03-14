@@ -97,13 +97,10 @@ import CompWelcome from "./CompWelcome.vue";
         to="/"
         >Spectacular</RouterLink
       >
-<<<<<<< HEAD
       <!-- <a class="navbar-brand mx-auto" style="font-size: 2rem" href="#"
         >Brand Name</a -->
       <CompWelcome />
-=======
 
->>>>>>> cdd15f6af8ae7b9cf90625fd544edb7fe144838a
       <div class="nav-icon">
         <button
           class="bi bi-person px-2"

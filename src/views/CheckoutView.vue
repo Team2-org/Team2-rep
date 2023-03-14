@@ -5,7 +5,9 @@
   <div class="checkout-background">
     <div id="your-cart">1.Your cart</div>
     <div class="your-cart-container">
-      <div class="your-cart-items"></div>
+      <div class="your-cart-items">
+        <CartComponent></CartComponent>
+      </div>
     </div>
 
     <div id="delivery-method">2. Delivery method</div>
@@ -159,7 +161,7 @@
     </div>
 
     <div class="total-container">
-      <p id="totalcost">Total: {{ total }}</p>
+      <p id="totalcost">Total: {{ cartTotal }}</p>
       <!--INSERT TOTAL COST HERE-->
       <input
         @click.prevent="continueToPayment"
@@ -178,6 +180,7 @@
 </template>
 
 <script>
+import CartComponent from "../components/CartComponent.vue";
 import EmptyModal from "../components/EmptyModal.vue";
 export default {
   data() {
@@ -235,7 +238,16 @@ export default {
       }
     },
   },
-  components: { EmptyModal },
+  computed: {
+    items() {
+      return this.$store.getters.cartItems;
+    },
+    cartTotal() {
+      return this.$store.getters.cartTotal;
+    },
+  },
+
+  components: { EmptyModal, CartComponent },
 };
 </script>
 
@@ -289,7 +301,17 @@ export default {
   font-weight: 600;
   font-size: 1.3rem;
 }
-.your-cart-container,
+.your-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* width: 90vw; */
+  /* height: 90vh; */
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 2vh 5vw 2vh 5vw;
+  background-color: white;
+}
 .shipping-container,
 .payment-container,
 .total-container {
