@@ -17,14 +17,6 @@ import CartComponent from "./CartComponent.vue";
       </div>
       <div class="cart-title">Cart</div>
 
-      <!-- <div class="items-qty"></div>
-      <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
-
-      <div class="items-qty">
-        You have {{ totalQuantity }} items in your cart
-      </div>
-      <!-- <CartItem v-for="item in items" :key="item.id" :item="item"></CartItem> -->
-
       <div class="cart-container-items">
         <CartComponent></CartComponent>
       </div>

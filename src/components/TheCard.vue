@@ -96,17 +96,15 @@ export default {
   },
   computed: {
     filteredData() {
-
       // const data = this.selectedItems
       //   ? this.items.filter((item) => item.color === this.selectedItems)
       //   : this.items;
       //   return console.log(data);
 
-         return this.items.filter((item) =>
+      return this.items.filter((item) =>
         item.color.includes(this.selectedItems)
       );
-      },
-
+    },
   },
 };
 </script>
