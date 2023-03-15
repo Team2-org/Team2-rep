@@ -164,7 +164,6 @@
       <p id="totalcost">Total: {{ cartTotal }}</p>
       <!--INSERT TOTAL COST HERE-->
       <input
-        @click.prevent="continueToPayment"
         @click="checkFields"
         type="button"
         class="continue-button"
@@ -182,6 +181,7 @@
 <script>
 import CartComponent from "../components/CartComponent.vue";
 import EmptyModal from "../components/EmptyModal.vue";
+import ConfirmationView from "../views/ConfirmationView.vue";
 export default {
   data() {
     return {
@@ -194,7 +194,7 @@ export default {
       phone: "",
       cardnumer: "",
       cardname: "",
-      expDare: "",
+      expDate: "",
       securityNr: "",
       showErrorMessage: false, // Shows error message if the above are empty
     };
@@ -206,34 +206,22 @@ export default {
     closeModal() {
       this.modalIsOpen = false;
     },
-    continueToPayment() {
-      if (
-        !this.fname ||
-        !this.lname ||
-        !this.adr ||
-        !this.city ||
-        !this.postal ||
-        !this.phone ||
-        !this.cardnumber ||
-        !this.cardname ||
-        !this.expDate ||
-        !this.securityNr
-      ) {
-        this.showErrorMessage = true;
-      } else {
-        // code here to continue to payment
-        location.reload;
-        this.showErrorMessage = false;
-      }
-    },
+
     checkFields() {
+      // Function to check if input fields are empty. If they are,
+      // they turn red and you cannot continue the purchase.
+      // If all inputs are checked, you're redirected to confirmation page.
+
       const inputs = document.querySelectorAll(".form-input");
       for (let i = 0; i < inputs.length; i++) {
         const input = inputs[i];
         if (input.value === "") {
           input.classList.add("invalid");
+          this.showErrorMessage = true;
         } else {
           input.classList.remove("invalid");
+          this.$router.push({ name: "confirmation" });
+          this.showErrorMessage = false;
         }
       }
     },
@@ -247,7 +235,7 @@ export default {
     },
   },
 
-  components: { EmptyModal, CartComponent },
+  components: { EmptyModal, CartComponent, ConfirmationView },
 };
 </script>
 
