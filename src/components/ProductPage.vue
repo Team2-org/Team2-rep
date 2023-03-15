@@ -67,6 +67,7 @@
   padding: 5px;
   font-family: Quicksand;
   font-size: 20px;
+  border: none;
 }
 /* .productPageRemove {
   width: 30px;

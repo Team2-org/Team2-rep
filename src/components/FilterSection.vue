@@ -211,7 +211,13 @@ fieldset {
   border-color: rgba(124, 124, 124, 1);
   margin-left: 3vw;
   padding: 1vw;
+
 }
+/* .checkbox-wrapper input[type="checkbox"]:checked + label {
+  background-color: #00bfff;
+} */
+
+
 .label {
   font-family: "Quicksand", sans-serif;
   margin-left: 1vw;

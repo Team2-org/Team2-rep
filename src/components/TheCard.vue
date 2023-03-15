@@ -89,7 +89,9 @@ export default {
     // },
     // this puts yellow in the selectedItems-list in data
     filterItems(allFilters) {
-      this.selectedItems = allFilters.forEach((filter) => console.log(filter.toLowerCase()));
+      this.selectedItems = allFilters.forEach((filter) =>
+        console.log(filter.toLowerCase())
+      );
       console.log(this.selectedItems);
     },
   },
@@ -98,12 +100,12 @@ export default {
       const data = this.selectedItems
         ? this.items.filter((item) => item.color === this.selectedItems)
         : this.items;
-        return data;
+      return data;
 
       //    return this.items.filter((item) =>
       //   item.color.includes(this.selectedItems)
       // );
-      },
+    },
   },
 };
 </script>

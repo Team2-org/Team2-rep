@@ -41,10 +41,8 @@ import CompWelcome from "./CompWelcome.vue";
               <RouterLink class="nav-link active" aria-current="page" to="/"
                 >Home</RouterLink
               >
-              <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
             </li>
             <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Link</a> -->
               <RouterLink
                 class="nav-link active"
                 aria-current="page"
