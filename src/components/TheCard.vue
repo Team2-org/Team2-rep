@@ -89,28 +89,30 @@ export default {
     // },
     // this puts yellow in the selectedItems-list in data
     filterItems(allFilters) {
-      this.selectedItems = allFilters;
-      this.selectedItems.forEach((filter) => filter.toLowerCase());
+      this.selectedItems = allFilters.forEach((filter) => console.log(filter.toLowerCase()));
       console.log(this.selectedItems);
     },
   },
   computed: {
     filteredData() {
-      // const data = this.selectedItems
-      //   ? this.items.filter((item) => item.color === this.selectedItems)
-      //   : this.items;
-      //   return console.log(data);
+      const data = this.selectedItems
+        ? this.items.filter((item) => item.color === this.selectedItems)
+        : this.items;
+        return data;
 
-      return this.items.filter((item) =>
-        item.color.includes(this.selectedItems)
-      );
-    },
+      //    return this.items.filter((item) =>
+      //   item.color.includes(this.selectedItems)
+      // );
+      },
   },
 };
 </script>
 <style scoped>
 .card {
-  margin: 3%;
+  margin-top: 6%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 .row {
   justify-content: center;

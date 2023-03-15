@@ -8,6 +8,7 @@ import CartComponent from "./CartComponent.vue";
     <div>
       <i class="bi bi-cart2 px-2" @click="toggleAccordion"></i>
     </div>
+    <transition name="slide" />
     <div class="cart-container" v-if="isExpanded" :class="{ show: isExpanded }">
       <div class="cart-content">
         <p @click="toggleAccordion" class="cont-shop">
@@ -73,6 +74,18 @@ export default {
   background-color: transparent;
   z-index: 10;
 }
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter-active {
+  transform: translateX(0%);
+}
+
+.slide-leave-to {
+  transform: translateX(100%);
+}
 .wrapper {
   display: flex;
   justify-content: flex-end;
@@ -89,7 +102,7 @@ export default {
   flex-direction: column;
   right: 0;
   transform: translateX(0%);
-  transition: transform 0.5s ease-out;
+  transition: transform 0.3s ease-in-out;
   transition-delay: 0.2s;
   background-color: #fff;
   border: 1px solid #ccc;
