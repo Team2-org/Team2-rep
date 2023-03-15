@@ -21,9 +21,9 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="hero-image">
     <img
-      class="hero-image"
+      class="hero-image2"
       src="../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg"
       alt="Cool girl with
     glasses"
@@ -48,23 +48,27 @@ export default {
 <style scoped>
 /* Desktop */
 .hero-image {
-  /*   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)),
-    url("../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg"); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+    url("../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg");
   background-color: pink;
   position: relative;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   object-fit: cover;
   background-position: center;
+  padding: 0;
 }
 
+.hero-image2 {
+  display: none;
+}
 .hero-text1 {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(255 243 243);
