@@ -31,7 +31,7 @@ export default {
   </div>
   <div>
     <h1 class="hero-text1" style="position: absolute; z-index: 100">
-      Högkvalitativa bågar till ett förnuftigt pris<br />
+      Elevate Your Style with our Range of Fashionable Spectacle Frames<br />
     </h1>
     <button
       id="hero-btn"
@@ -39,7 +39,7 @@ export default {
       @click="discover"
       style="position: absolute; z-index: 100"
     >
-      Upptäck mer <br />
+      Discover <br />
       ⇩
     </button>
   </div>
@@ -48,11 +48,11 @@ export default {
 <style scoped>
 /* Desktop */
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),
     url("../assets/img/ian-dooley-TT-ROxWj9nA-unsplash.jpeg");
   background-color: pink;
   position: relative;
-  background-attachment: fixed;
+  background-attachment: sticky;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
@@ -72,9 +72,9 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(255 243 243);
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 3.5rem;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.5rem;
   font-weight: 300;
 }
 
@@ -97,10 +97,14 @@ export default {
 /* Tablet */
 @media only screen and (max-width: 1000px) {
   .hero-image {
-    height: 90vh;
+    height: 100vh;
   }
   .hero-text1 {
     display: inline;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: 0.5rem;
+    font-weight: 200;
   }
   .hero-text2 {
     display: inline;
@@ -109,10 +113,14 @@ export default {
 
 @media only screen and (max-width: 770px) {
   .hero-image {
-    height: 80vh;
+    height: 90vh;
   }
   .hero-text1 {
     display: inline;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    letter-spacing: 0.5rem;
+    font-weight: 200;
   }
   .hero-text2 {
     display: inline;
@@ -120,7 +128,7 @@ export default {
 }
 @media only screen and (max-width: 700px) {
   .hero-image {
-    height: 70vh;
+    height: 80vh;
   }
   .hero-text1 {
     display: none;
@@ -131,7 +139,7 @@ export default {
 }
 @media only screen and (max-width: 550px) {
   .hero-image {
-    height: 60vh;
+    height: 70vh;
   }
   .hero-text1 {
     display: none;
@@ -143,7 +151,7 @@ export default {
 /* phone */
 @media only screen and (max-width: 400px) {
   .hero-image {
-    height: 50vh;
+    height: 60vh;
   }
 }
 </style>
