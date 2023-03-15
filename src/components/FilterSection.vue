@@ -25,8 +25,18 @@ import ModalRight from "./ModalRight.vue";
         <p class="filter-p">{{ object.category }}</p>
         <fieldset>
           <div class="input-wrapper">
-            <div
+            <!-- <div
               class="checkbox-wrapper"
+              v-for="(name, id) in object.names"
+              :key="id"
+            > -->
+            <!-- Checkbox-wrapper color will change start -->
+            <div
+              :class="[
+                'checkbox-wrapper',
+                { checked: isChecked(name.description) },
+              ]"
+              @click="toggleCheckbox(name.description)"
               v-for="(name, id) in object.names"
               :key="id"
             >
@@ -41,6 +51,7 @@ import ModalRight from "./ModalRight.vue";
                 {{ name.description }}
               </label>
             </div>
+            <!-- Checkbox-wrapper color will change end -->
           </div>
         </fieldset>
       </div>
@@ -138,6 +149,19 @@ export default {
     };
   },
   methods: {
+    //Checkbox-wrapper color will change start
+    toggleCheckbox(description) {
+      const index = this.allFilters.indexOf(description);
+      if (index === -1) {
+        this.allFilters.push(description);
+      } else {
+        this.allFilters.splice(index, 1);
+      }
+    },
+    isChecked(description) {
+      return this.allFilters.includes(description);
+    },
+    //Checkbox-wrapper color will change end
     clear() {
       this.allFilters = [];
     },
@@ -207,11 +231,16 @@ fieldset {
   flex-direction: row;
   border: solid 0.5px;
   border-radius: 5px;
-  background-color: rgb(230, 185, 192);
+  background-color: white;
   border-color: rgba(124, 124, 124, 1);
   margin-left: 3vw;
   padding: 1vw;
 }
+/* When Checked color will change */
+.checkbox-wrapper.checked {
+  background-color: rgb(230, 185, 192);
+}
+
 .label {
   font-family: "Quicksand", sans-serif;
   margin-left: 1vw;
