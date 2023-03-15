@@ -95,7 +95,6 @@ export default {
   },
   computed: {
     filteredData() {
-
       const data = this.selectedItems
         ? this.items.filter((item) => item.color === this.selectedItems)
         : this.items;
@@ -105,7 +104,6 @@ export default {
       //   item.color.includes(this.selectedItems)
       // );
       },
-
   },
 };
 </script>

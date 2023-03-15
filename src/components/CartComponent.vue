@@ -1,7 +1,7 @@
 <template>
   <div class="cartCard" v-for="item in items" :key="item.id" :item="item">
     <div class="cartImageWrapper">
-      <img :src="item.image" class="cartImage" alt="..." />
+      <img :src="item.image" id="cartImage" alt="..." />
     </div>
 
     <div class="cartBody">
@@ -67,7 +67,7 @@ export default {
 .cartImageWrapper {
   display: flex;
 }
-img {
+#cartImage {
   width: 20vw;
   height: 30vh;
   object-fit: cover;
