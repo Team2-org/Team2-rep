@@ -92,6 +92,7 @@
 .bi-suit-heart {
   margin-left: 75px;
   padding-bottom: 10px;
+  font-size: 1.5rem;
 }
 .product-description {
   margin-left: auto;
