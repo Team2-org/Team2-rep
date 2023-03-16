@@ -222,6 +222,7 @@ export default {
           input.classList.remove("invalid");
           this.$router.push({ name: "confirmation" });
           this.showErrorMessage = false;
+          window.scrollTo(0, 0); //Makes the next page scroll to the top.
         }
       }
     },
