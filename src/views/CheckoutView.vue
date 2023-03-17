@@ -181,7 +181,7 @@
 <script>
 import CartComponent from "../components/CartComponent.vue";
 import EmptyModal from "../components/EmptyModal.vue";
-import ConfirmationView from "../views/ConfirmationView.vue";
+
 export default {
   data() {
     return {
@@ -236,7 +236,7 @@ export default {
     },
   },
 
-  components: { EmptyModal, CartComponent, ConfirmationView },
+  components: { EmptyModal, CartComponent },
 };
 </script>
 

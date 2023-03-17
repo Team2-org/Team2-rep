@@ -16,6 +16,7 @@ export default createStore({
   state: {
     cart: [],
     wishlistarray: [],
+    variables: "",
   },
   getters: {
     productQuantity: (state) => (item) => {
@@ -33,6 +34,9 @@ export default createStore({
     cartTotal: (state) => {
       return state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
     },
+    getVariable: function (state) {
+      return state.variables;
+    },
   },
   // Changes data in the state.
   mutations: {
@@ -44,6 +48,9 @@ export default createStore({
         state.cart.push({ ...item, quantity: 1 });
       }
       updateLocalStorage(state.cart);
+    },
+    setVariable: function (state, newValue) {
+      state.variables = newValue;
     },
 
     // Removing item from cart/decreasing, from the ProductPage component

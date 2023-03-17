@@ -1,3 +1,6 @@
+<script setup>
+import CompWelcome from "./CompWelcome.vue";
+</script>
 <template>
   <div
     class="modal-overlay"
@@ -10,6 +13,7 @@
       v-if="isWishlistExpanded"
       :class="{ show: isWishlistExpanded }"
     >
+      <p id="comp"><CompWelcome /></p>
       <div class="wishlist-content">
         <p @click="toggleWishlist" class="cont-shop">
           <strong> ⏎ </strong>
@@ -17,7 +21,6 @@
         </p>
       </div>
       <div class="wishlist-title">{{ title }}</div>
-
       <div class="wishlist-items-container">
         <div v-if="item === null"><p>Du har inget i varukorgen.</p></div>
         <!-- <div class="fetch-card"> -->
@@ -29,7 +32,6 @@
                 <img :src="item.image" class="card-img-top" alt="..." />
               </div>
             </div>
-
             <div class="card-body">
               <router-link
                 class="card-heading"
@@ -75,7 +77,6 @@ export default {
   },
 
   //Page shows from the top
-
   created() {
     this.wishlist = JSON.parse(localStorage.getItem("wishlist"));
   },
@@ -254,6 +255,10 @@ a:hover {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
+}
+#comp {
+  font-size: 14px;
+  margin-right: 100%;
 }
 
 @media screen and (max-width: 940px) {

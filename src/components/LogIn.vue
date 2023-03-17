@@ -1,35 +1,36 @@
+<script setup>
+import CompWelcome from "./CompWelcome.vue";
+</script>
 <template>
   <div>
     <h2>Log In</h2>
 
-    <form id="loginForm">
+    <div id="loginForm">
+      <CompWelcome />
       <p id="emailLabel">E-mail</p>
       <input
         type="email"
-        v-model="email"
         id="email"
+        :value="variable"
+        @keyup.enter="updateVariable($event.target.value)"
         placeholder="name@mail.com"
       />
-      <p>{{ email }}</p>
       <!-- Password input with show password button -->
       <div class="passw">
-        <p class="inputLabel" id="passwordLbl">
-          Password
-          <span
-            ><ion-icon
-              name="eye-outline"
-              @click.prevent="ToggleType()"
-            ></ion-icon
-          ></span>
-        </p>
-
-        <input class="formInput" :type="inputType" id="password" />
+        <input type="password" class="formInput" placeholder="password" />
       </div>
 
-      <button id="loginbtn" @click="closeModal">Log in</button>
-    </form>
-    <p id="member">Not a member yet?</p>
-    <slot></slot>
+      <button
+        type="button"
+        id="loginbtn"
+        @click="closeModal"
+        data-dismiss="close"
+      >
+        Press enter
+      </button>
+      <p id="member">Not a member yet?</p>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -95,6 +96,7 @@ span {
 </style>
 
 <script>
+import store from "../store";
 export default {
   data() {
     return {
@@ -105,6 +107,9 @@ export default {
   methods: {
     ToggleType() {
       this.inputType = this.inputType === "password" ? "text" : "password";
+    },
+    updateVariable: function (value) {
+      store.commit("setVariable", "Welcome" + " " + value + "!");
     },
   },
 };

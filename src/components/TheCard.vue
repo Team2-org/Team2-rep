@@ -4,8 +4,7 @@ import FilterSection from "./FilterSection.vue";
 <template>
   <filter-section @all-filters="filterItems" />
   <div class="fetch-card">
-    <div class="row">
-      <!-- v-if="filteredData !== null" -->
+    <div class="row" v-if="items !== null">
       <div
         class="card"
         style="width: 18rem"
@@ -50,8 +49,8 @@ export default {
   components: FilterSection,
   data() {
     return {
-      selectedItems: [],
-      items: null,
+      selectedItems: null,
+      items: [],
       //   items: items.map((item) => ({ ...item, isActive: false })),
 
       active: false,
@@ -83,30 +82,43 @@ export default {
     addToWishlist(item) {
       this.$store.commit("addToWishlist", item);
     },
-
-    // RemoveItemFromWishlist(item) {
-    //   this.$store.commit("RemoveItemFromWishlist", item);
-    // },
-    // this puts yellow in the selectedItems-list in data
     filterItems(allFilters) {
-      this.selectedItems = allFilters.forEach((filter) =>
-        console.log(filter.toLowerCase())
-      );
-      console.log(this.selectedItems);
+      const lowerCaseFilter = allFilters.map((filter) => filter.toLowerCase());
+      console.log(lowerCaseFilter);
+      if (lowerCaseFilter.length > 0) {
+        const filteredItems = this.items.filter((item) => {
+          return lowerCaseFilter.every((selected) => {
+            console.log();
+            return item.color.toLowerCase() === selected;
+          });
+        });
+        console.log(filteredItems);
+        return (this.items = filteredItems);
+        // });
+      } else {
+        return this.items;
+      }
     },
   },
-  computed: {
-    filteredData() {
-      const data = this.selectedItems
-        ? this.items.filter((item) => item.color === this.selectedItems)
-        : this.items;
-      return data;
+  // computed: {
+  //   filteredItems() {
+  //     const lowerCaseFilter = this.allFilters.map((filter) => filter.toLowerCase());
+  //     console.log(lowerCaseFilter);
+  //     if (lowerCaseFilter.length > 0) {
+  //       const filteredItems = this.items.filter((item) => {
+  //         return lowerCaseFilter.every((selected) => {
+  //           console.log();
+  //           return item.color.toLowerCase() === selected;
+  //         });
+  //       });
+  //       console.log(filteredItems);
+  //       return (this.items = filteredItems);
 
-      //    return this.items.filter((item) =>
-      //   item.color.includes(this.selectedItems)
-      // );
-    },
-  },
+  //     } else {
+  //       return this.items;
+  //     };
+  //   },
+  // },
 };
 </script>
 <style scoped>

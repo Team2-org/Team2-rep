@@ -159,7 +159,7 @@ export default {
       }
     },
     isChecked(description) {
-      return this.allFilters.includes(description);
+      this.allFilters.includes(description);
     },
     //Checkbox-wrapper color will change end
     clear() {
@@ -213,6 +213,7 @@ export default {
 #filter-h2 {
   font-size: 1.7rem;
   font-weight: 200;
+  font-family: "Quicksand", sans-serif;
 }
 .filter-p {
   margin-left: 2vw;
