@@ -12,7 +12,7 @@ export default {
   methods: {
     discover() {
       window.scrollTo({
-        top: 790,
+        top: 750,
         behavior: "smooth",
       });
     },
