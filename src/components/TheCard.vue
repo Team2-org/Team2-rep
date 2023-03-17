@@ -183,7 +183,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
-    margin: 0 auto; /* center the row horizontally */
+    margin: 0 auto;
   }
 }
 
