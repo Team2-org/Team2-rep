@@ -73,6 +73,7 @@ export default {
 }
 .row {
   margin-left: 5%;
+  margin-right: 5%;
 }
 
 .icon {
