@@ -170,4 +170,9 @@ export default {
 .card-heading {
   text-decoration: none;
 }
+@media only screen and (max-width: 360px) {
+  .row {
+    margin-left: 0.5%;
+  }
+}
 </style>
