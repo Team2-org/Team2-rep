@@ -3,7 +3,7 @@ import CompWelcome from "./CompWelcome.vue";
 </script>
 <template>
   <div>
-    <h2>Log In</h2>
+    <h2>Sign in</h2>
 
     <div id="loginForm">
       <CompWelcome />
@@ -17,7 +17,17 @@ import CompWelcome from "./CompWelcome.vue";
       />
       <!-- Password input with show password button -->
       <div class="passw">
-        <input type="password" class="formInput" placeholder="password" />
+        <p class="inputLabel" id="passwordLbl">
+          Password
+          <span
+            ><ion-icon
+              name="eye-outline"
+              @click.prevent="ToggleType()"
+            ></ion-icon
+          ></span>
+        </p>
+
+        <input class="formInput" :type="inputType" id="password" />
       </div>
 
       <button
@@ -26,7 +36,7 @@ import CompWelcome from "./CompWelcome.vue";
         @click="closeModal"
         data-dismiss="close"
       >
-        Press enter
+        Sign in
       </button>
       <p id="member">Not a member yet?</p>
       <slot></slot>
