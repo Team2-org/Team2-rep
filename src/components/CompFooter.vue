@@ -109,4 +109,11 @@ export default {
     margin-left: 25%;
   }
 }
+@media only screen and (max-width: 360px) {
+  ol,
+  ul,
+  dl ul {
+    margin-left: 10%;
+  }
+}
 </style>
