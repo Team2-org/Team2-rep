@@ -8,7 +8,7 @@ import CartComponent from "./CartComponent.vue";
     <div>
       <i class="bi bi-cart2 px-2" @click="toggleAccordion"></i>
     </div>
-    <transition name="slide" />
+    <Transition name="slide" />
     <div class="cart-container" v-if="isExpanded" :class="{ show: isExpanded }">
       <div class="cart-content">
         <p @click="toggleAccordion" class="cont-shop">
@@ -37,6 +37,7 @@ import CartComponent from "./CartComponent.vue";
       </section>
     </div>
   </div>
+  <Transition />
 </template>
 
 <script>
