@@ -9,7 +9,7 @@ import CompWelcome from "./CompWelcome.vue";
     <div>
       <i class="bi bi-cart2 px-2" @click="toggleAccordion"></i>
     </div>
-    <transition name="slide" />
+    <Transition name="slide" />
     <div class="cart-container" v-if="isExpanded" :class="{ show: isExpanded }">
       <p id="comp"><CompWelcome /></p>
       <div class="cart-content">
@@ -39,6 +39,7 @@ import CompWelcome from "./CompWelcome.vue";
       </section>
     </div>
   </div>
+  <Transition />
 </template>
 
 <script>
