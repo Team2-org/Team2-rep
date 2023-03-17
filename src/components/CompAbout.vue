@@ -2,42 +2,42 @@
   <div class="aboutGlasses">
     <div class="lineContainer">
       <div class="line">
-        <h2 class="headLine">OM SPECTACULAR GROUP</h2>
+        <h2 class="headLine">ABOUT SPECTACULAR GROUP</h2>
       </div>
     </div>
     <h5 class="glassesContainer">
-      Spectacular Group är en av Europas ledande aktör i optikbranschen<br />
-      och erbjuder unika lösningar inom både Eye Health och Eye Fashion<br />
-      med ett brett sortiment som utgår ifrån kundens olika livsstilar.
+      Spectacular Group is one of the leading players in the optics industry<br />
+      in Europe, offering unique solutions in both Eye Health and Eye Fashion<br />
+      with a wide range of products tailored to customers' different lifestyles.
     </h5>
     <div class="text">
       <h5 class="imgText">
-        Spectacular Group är en av Europas ledande aktör inom optikbranschen och
-        erbjuder unika lösningar inom både Eye Health och Eye Fashion med ett
-        brett sortiment som utgår ifrån kundens olika livsstilar och behov av
-        ögonhälsa. Koncernen finns i Norden, har cirka 3000 medarbetare och en
-        total omsättning på cirka 4 miljarder SEK. Totalt har koncernen cirka
-        500 butiker som drivs under varumärkena Spectacular, Ai Eyewear samt
-        Profil Optik i Danmark. Spectacular Group har genom digitalisering,
-        abonnemangserbjudanden och andra innovativa koncept drivit en tillväxt
-        och lönsamhetsutveckling som är bland de högsta i Europa. Våra kunder är
-        alltid i fokus och vi har ett tydligt integrerat hållbarhetsperspektiv
-        genom hela vår värdekedja. Spectacular korades till Sveriges mest
-        hållbara optiker i Sustainable Brand Index 2022.<br /><br />Vi på
-        Spectacular tar oss tid för dig, vi ser dig och vill göra vad vi kan för
-        att du ska hitta rätt glasögon och linser – för alla dina behov. Med
-        legitimerade optiker som ser till hela din ögonhälsa, individanpassade
-        kvalitetsglas, brett sortiment och vårt smarta Lifestyle-abonnemang som
-        gör det enklare än någonsin att ha glasögon och linser. Välkommen in och
-        prova allt från de senaste trenderna, till glasögonen för din sport.
-        Synundersökningen bokar du här på spectacular.se.
+        Spectacular Group is one of the leading players in the optics industry
+        in Europe, offering unique solutions in both Eye Health and Eye Fashion
+        with a wide range of products tailored to customers' different
+        lifestyles and eye health needs. The group is located in the Nordic
+        region, has around 3,000 employees and a total turnover of approximately
+        SEK 4 billion. The group has about 500 stores operated under the brands
+        Spectacular, Ai Eyewear, and Profil Optik in Denmark. Through
+        digitalization, subscription offerings, and other innovative concepts,
+        Spectacular Group has achieved growth and profitability development that
+        is among the highest in Europe. Our customers are always our focus, and
+        we have a clear integrated sustainability perspective throughout our
+        value chain. Spectacular was named Sweden's most sustainable optician in
+        the Sustainable Brand Index 2022.<br /><br />
+        At Spectacular, we take the time for you, we see you, and we want to do
+        everything we can to help you find the right glasses and lenses for all
+        your needs. With licensed opticians who ensure your overall eye health,
+        individually tailored quality lenses, a wide range of products, and our
+        smart Lifestyle subscription that makes it easier than ever to have
+        glasses and lenses. Come in and try everything from the latest trends to
+        the glasses for your sport. You can book your eye examination here on
+        spectacular.se.
       </h5>
     </div>
     <div></div>
   </div>
 </template>
-
-<script></script>
 
 <style scoped>
 .aboutGlasses {

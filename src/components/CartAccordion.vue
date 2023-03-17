@@ -1,5 +1,6 @@
 <script setup>
 import CartComponent from "./CartComponent.vue";
+import CompWelcome from "./CompWelcome.vue";
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import CartComponent from "./CartComponent.vue";
     </div>
     <transition name="slide" />
     <div class="cart-container" v-if="isExpanded" :class="{ show: isExpanded }">
+      <p id="comp"><CompWelcome /></p>
       <div class="cart-content">
         <p @click="toggleAccordion" class="cont-shop">
           <strong>⏎ </strong>
@@ -74,7 +76,6 @@ export default {
   background-color: transparent;
   z-index: 10;
 }
-
 .slide-enter {
   transform: translateX(100%);
 }
@@ -221,7 +222,10 @@ bi-cart2,
 px-2 {
   display: none;
 }
-
+#comp {
+  font-size: 14px;
+  margin-right: 100%;
+}
 @media only screen and (max-width: 1200px) {
   .cont-shop {
     padding-right: 5rem;

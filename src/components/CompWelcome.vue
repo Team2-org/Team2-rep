@@ -1,19 +1,11 @@
-<template>
-  <nav>
-    <div>Welcome {{ username }}!</div>
-  </nav>
-</template>
-
-<script>
-export default {
-  props: {
-    username: {
-      type: String,
-      required: false,
-    },
-  },
-};
+<script setup>
+import ShowLogin from "./ShowLogin.vue";
 </script>
+<template>
+  <div class="welcome-message">
+    <ShowLogin />
+  </div>
+</template>
 
 <style>
 .welcome-message {
