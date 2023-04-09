@@ -164,7 +164,7 @@ export default {
     },
     closeFilter() {
       this.isFilterVisible = false;
-      this.filterItems(this.allFilters)
+      this.filterItems(this.allFilters);
     },
     removeSelected(index) {
       return this.allFilters.splice(index, 1);
