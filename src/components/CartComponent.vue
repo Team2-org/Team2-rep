@@ -69,7 +69,6 @@ export default {
 }
 #cartImage {
   width: 20vw;
-  height: 30vh;
   object-fit: cover;
   padding: 10px 10px 10px 0px;
   display: flex;

@@ -125,4 +125,29 @@ export default {
 .card-heading {
   text-decoration: none;
 }
+@media only screen and (max-width: 1000px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto; /* center the row horizontally */
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto; /* center the row horizontally */
+  }
+}
+@media only screen and (max-width: 360px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto; /* center the row horizontally */
+  }
+}
 </style>

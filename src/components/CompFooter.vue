@@ -73,6 +73,7 @@ export default {
 }
 .row {
   margin-left: 5%;
+  margin-right: 5%;
 }
 
 .icon {
@@ -106,6 +107,13 @@ export default {
   ul,
   dl ul {
     margin-left: 25%;
+  }
+}
+@media only screen and (max-width: 360px) {
+  ol,
+  ul,
+  dl ul {
+    margin-left: 10%;
   }
 }
 </style>

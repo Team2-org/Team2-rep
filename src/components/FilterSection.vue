@@ -1,4 +1,3 @@
-<!--Only made the filter button for now, put in a placeholder place-->
 <script setup>
 import ModalRight from "./ModalRight.vue";
 </script>
@@ -25,11 +24,6 @@ import ModalRight from "./ModalRight.vue";
         <p class="filter-p">{{ object.category }}</p>
         <fieldset>
           <div class="input-wrapper">
-            <!-- <div
-              class="checkbox-wrapper"
-              v-for="(name, id) in object.names"
-              :key="id"
-            > -->
             <!-- Checkbox-wrapper color will change start -->
             <div
               :class="[
@@ -90,7 +84,7 @@ import ModalRight from "./ModalRight.vue";
             class="filter-button"
             value="Apply"
             aria-label="Close modal"
-            @click="filterItems(allFilters)"
+            @click="closeFilter"
           />
         </div>
       </div>
@@ -162,14 +156,15 @@ export default {
       this.allFilters.includes(description);
     },
     //Checkbox-wrapper color will change end
-    clear() {
-      this.allFilters = [];
+    clear(allFilters) {
+      this.$emit("clear.filter", allFilters);
     },
     openFilter() {
       this.isFilterVisible = true;
     },
     closeFilter() {
       this.isFilterVisible = false;
+      this.filterItems(this.allFilters);
     },
     removeSelected(index) {
       return this.allFilters.splice(index, 1);

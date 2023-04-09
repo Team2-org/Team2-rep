@@ -49,10 +49,7 @@ export default {
   components: FilterSection,
   data() {
     return {
-      selectedItems: null,
       items: [],
-      //   items: items.map((item) => ({ ...item, isActive: false })),
-
       active: false,
       item: "",
     };
@@ -62,7 +59,6 @@ export default {
   },
   methods: {
     async fetchCards() {
-      //   const res = await fetch("../../public/products.json");
       const res = await fetch("/products.json");
       const val = await res.json();
       this.items = val;
@@ -85,45 +81,25 @@ export default {
     filterItems(allFilters) {
       const lowerCaseFilter = allFilters.map((filter) => filter.toLowerCase());
       console.log(lowerCaseFilter);
-      if (lowerCaseFilter.length > 0) {
-        const filteredItems = this.items.filter((item) => {
+      if (lowerCaseFilter !== null) {
+        this.items = this.items.filter((item) => {
           return lowerCaseFilter.every((selected) => {
             console.log();
             return item.color.toLowerCase() === selected;
           });
         });
-        console.log(filteredItems);
-        return (this.items = filteredItems);
-        // });
+        console.log(this.items);
+        return this.items;
       } else {
         return this.items;
       }
     },
   },
-  // computed: {
-  //   filteredItems() {
-  //     const lowerCaseFilter = this.allFilters.map((filter) => filter.toLowerCase());
-  //     console.log(lowerCaseFilter);
-  //     if (lowerCaseFilter.length > 0) {
-  //       const filteredItems = this.items.filter((item) => {
-  //         return lowerCaseFilter.every((selected) => {
-  //           console.log();
-  //           return item.color.toLowerCase() === selected;
-  //         });
-  //       });
-  //       console.log(filteredItems);
-  //       return (this.items = filteredItems);
-
-  //     } else {
-  //       return this.items;
-  //     };
-  //   },
-  // },
 };
 </script>
 <style scoped>
 .card {
-  margin-top: 6%;
+  margin-top: 15%;
   margin-bottom: 3%;
   margin-left: 3%;
   margin-right: 3%;
@@ -169,5 +145,41 @@ export default {
 }
 .card-heading {
   text-decoration: none;
+}
+@media only screen and (max-width: 1000px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto; /* center the row horizontally */
+  }
+}
+@media only screen and (max-width: 430px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allow items to wrap to a new line when screen size is reduced */
+    margin: 0 auto; /* center the row horizontally */
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    margin-top: 10%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .card {
+    margin-top: 6%;
+  }
 }
 </style>
