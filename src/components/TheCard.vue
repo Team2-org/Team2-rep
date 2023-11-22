@@ -49,7 +49,10 @@ export default {
   components: FilterSection,
   data() {
     return {
-      items: [],
+      selectedItems: null,
+      items: null,
+      //   items: items.map((item) => ({ ...item, isActive: false })),
+
       active: false,
       item: "",
     };
@@ -94,6 +97,11 @@ export default {
         return this.items;
       }
     },
+    // computed: {
+
+    //     // return this.items;
+
+    //     // console.log(this.items);
   },
 };
 </script>
@@ -154,12 +162,12 @@ export default {
 
 @media screen and (min-width: 600px) {
   .card {
-  margin-top: 10%;
-}
+    margin-top: 10%;
+  }
 }
 @media screen and (min-width: 900px) {
   .card {
-  margin-top: 6%;
-}
+    margin-top: 6%;
+  }
 }
 </style>
