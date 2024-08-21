@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "image": "./img/bartosz-sujkowski-0zA84TFRjI8-unsplash.jpg",
+    "image": "/img/bartosz-sujkowski-0zA84TFRjI8-unsplash.jpg",
     "alt": "Glasses Image",
     "name": "Wishlist test",
     "brand": "Browline",
