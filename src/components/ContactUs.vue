@@ -7,7 +7,7 @@
       <p>We are happy to help!</p>
     </div>
 
-    <img src="../../public/img/pexels-yan-krukau-8867482.jpg" alt="" />
+    <img src="/img/pexels-yan-krukau-8867482.jpg" alt="" />
   </div>
   <div class="contact-details">
     <div class="contact-section">
